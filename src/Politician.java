@@ -1,2 +1,2 @@
-public abstract class Politician {
+public class Politician {
 }
