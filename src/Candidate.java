@@ -1,6 +1,6 @@
 public class Candidate {
     int numOfVotes;
-    String partyMembership;  //Not really sure about this field Allan.
+    String partyMembership;  //Not really sure about this field Allen.
 
     public int getNumOfVotes() {
         return numOfVotes;
