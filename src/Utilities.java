@@ -17,5 +17,8 @@ public class Utilities {
         return ((value >= start) && (value <= end));
     }
 
-    static boolean validIntNonNegative(int number) { return (number >=0);}
+    static boolean validIntNonNegative(int number)
+    {
+        return (number >=0);
+    }
 }

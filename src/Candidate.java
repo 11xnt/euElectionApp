@@ -17,4 +17,9 @@ public class Candidate {
     public void setPartyMembership(String partyMembership) {
         this.partyMembership = partyMembership;
     }
+
+    Candidate(int nOfVotes, String ptMembership){
+        numOfVotes = nOfVotes;
+        partyMembership = ptMembership;
+    }
 }

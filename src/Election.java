@@ -1,7 +1,7 @@
 public class Election {
     String electionType;
-    String location;
-    int year;
+    String countyLocation;
+    int yearOfElection;
     int numberOfSeats;
 
     public String getElectionType() {
@@ -12,20 +12,20 @@ public class Election {
         this.electionType = electionType;
     }
 
-    public String getLocation() {
-        return location;
+    public String getCountyLocation() {
+        return countyLocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setCountyLocation(String countyLocation) {
+        this.countyLocation = countyLocation;
     }
 
-    public int getYear() {
-        return year;
+    public int getYearOfElection() {
+        return yearOfElection;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setYearOfElection(int yearOfElection) {
+        this.yearOfElection = yearOfElection;
     }
 
     public int getNumberOfSeats() {
@@ -35,4 +35,15 @@ public class Election {
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
+
+    Election(String electType, String countyLoc, int yearOfElect, int numOfSeats){
+
+        electionType = electType;
+        numberOfSeats = numOfSeats;
+        countyLocation = countyLoc;
+        yearOfElection = yearOfElect;
+
+    }
+
+
 }
