@@ -1,4 +1,5 @@
 public class Election {
+
     String electionType;
     String countyLocation;
     int yearOfElection;
@@ -36,14 +37,10 @@ public class Election {
         this.numberOfSeats = numberOfSeats;
     }
 
-    Election(String electType, String countyLoc, int yearOfElect, int numOfSeats){
-
-        electionType = electType;
-        numberOfSeats = numOfSeats;
-        countyLocation = countyLoc;
-        yearOfElection = yearOfElect;
-
+    public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
+        this.electionType = electionType;
+        this.countyLocation = countyLocation;
+        this.yearOfElection = yearOfElection;
+        this.numberOfSeats = numberOfSeats;
     }
-
-
 }

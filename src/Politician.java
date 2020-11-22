@@ -2,7 +2,6 @@ import java.awt.image.BufferedImage;
 
 public class Politician {
 
-    private final Object BufferedImage;
     String firstName;
     String lastName;
     int dateOfBirth;
@@ -59,15 +58,13 @@ public class Politician {
         this.image = image;
     }
 
-    Politician(String fName, String lName, int dob, String pParty, String hCounty, BufferedImage image){
-
-        firstName = fName;
-        lastName = lName;
-        dateOfBirth = dob;
-        politicalParty = pParty;
-        homeCounty = hCounty;
-        BufferedImage = image;
-
+    public Politician(String firstName, String lastName, int dateOfBirth, String politicalParty, String homeCounty, BufferedImage image) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.politicalParty = politicalParty;
+        this.homeCounty = homeCounty;
+        this.image = image;
     }
 
     public String toString(){

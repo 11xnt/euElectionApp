@@ -18,8 +18,8 @@ public class Candidate {
         this.partyMembership = partyMembership;
     }
 
-    Candidate(int nOfVotes, String ptMembership){
-        numOfVotes = nOfVotes;
-        partyMembership = ptMembership;
+    public Candidate(int numOfVotes, String partyMembership) {
+        this.numOfVotes = numOfVotes;
+        this.partyMembership = partyMembership;
     }
 }

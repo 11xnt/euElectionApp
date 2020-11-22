@@ -42,6 +42,8 @@ public class MyList<L> {
     }
 
 
+
+
     /**
      * Linked Node Class
      * @param <N>
