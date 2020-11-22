@@ -122,7 +122,7 @@ public class Main {
         int dateOfBirth = ScannerInput.readNextInt("Enter in the Politician's DoB (DDMMYY): ");
         String polParty = ScannerInput.readNextString("Enter in the Politician's party");
         String county = ScannerInput.readNextString("Enter in the Politician's home county");
-        //BufferedImage image = ScannerInput.readNextString("Please enter a URL of the politician's picture");
+        String image = ScannerInput.readNextString("Please enter a URL of the politician's picture");
     }
 
     //Add new election
