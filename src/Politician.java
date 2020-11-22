@@ -9,7 +9,6 @@ public class Politician {
     String homeCounty;
     BufferedImage image;
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -59,11 +58,11 @@ public class Politician {
     }
 
     public Politician(String firstName, String lastName, int dateOfBirth, String politicalParty, String homeCounty, BufferedImage image) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        if(Utilities.onlyContainsLetters(firstName)) this.firstName = firstName;
+        if(Utilities.onlyContainsLetters(lastName)) this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.politicalParty = politicalParty;
-        this.homeCounty = homeCounty;
+        if(Utilities.onlyContainsLetters(politicalParty)) this.politicalParty = politicalParty;
+        if(Utilities.onlyContainsLetters(homeCounty)) this.homeCounty = homeCounty;
         this.image = image;
     }
 

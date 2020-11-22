@@ -1,4 +1,5 @@
 public class Candidate {
+
     int numOfVotes;
     String partyMembership;  //Not really sure about this field Allen.
 

@@ -5,6 +5,10 @@ public class Utilities {
         return (text.matches("[0-9]+"));
     }
 
+    static boolean onlyContainsLetters(String text) {
+        return (text.matches("[a-zA-Z]+"));
+    }
+
     static String max30Chars(String string){
         return (string.length()<=30) ? string : string.substring(0,30);
     }
