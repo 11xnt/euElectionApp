@@ -21,6 +21,10 @@ public class MyList<L> {
         numElements++;
     }
 
+    /**
+     * Method to delete a node.
+     * @param d
+     */
     public void deleteElement(int d){
 
         LinkedNode temp = head;
