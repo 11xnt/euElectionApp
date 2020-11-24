@@ -24,3 +24,44 @@ Run down the menu while operating a CRUD-type system
     //Save and Load (.xml)
 */
 
+
+/*
+FMXL Id-s and fields:
+
+    @FXML
+    private AnchorPane image;
+
+    @FXML
+    private TextField firstName;
+
+    @FXML
+    private TextField lastName;
+
+    @FXML
+    private TextField politicalParty;
+
+    @FXML
+    private TextField dateOfBirth;
+
+    @FXML
+    private TextField imageUrl;
+
+    @FXML
+    private AnchorPane saveLoadTab;
+
+    @FXML
+    void addPolitician(ActionEvent event) {
+
+    }
+
+    @FXML
+    void load(ActionEvent event) {
+
+    }
+
+    @FXML
+    void save(ActionEvent event) {
+
+    }
+
+}*/
