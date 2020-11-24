@@ -32,65 +32,63 @@
       </MenuBar>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="770.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Add Politician">
+          <Tab fx:id="addPoliticianTab" text="Add Politician">
             <content>
               <AnchorPane id="but" fx:id="image" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="768.0">
                      <children>
-                        <Label layoutX="31.0" layoutY="76.0" prefHeight="25.0" prefWidth="77.0" text="First Name">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
+                        <Label layoutX="31.0" layoutY="76.0" prefHeight="25.0" prefWidth="77.0" text="First Name" />
                         <Label layoutX="31.0" layoutY="131.0" text="Last Name" />
                         <Label layoutX="31.0" layoutY="234.0" text="DOB:" />
-                        <Label layoutX="31.0" layoutY="188.0" text="Political Party" />
+                        <Label layoutX="31.0" layoutY="183.0" text="Political Party" />
                         <TextField fx:id="firstName" layoutX="183.0" layoutY="71.0" promptText="Letters only" />
-                        <TextField fx:id="lastName" layoutX="183.0" layoutY="127.0" promptText="Leters Only" />
-                        <TextField fx:id="politicalParty" layoutX="183.0" layoutY="184.0" promptText="Leters Only" />
+                        <TextField fx:id="lastName" layoutX="183.0" layoutY="127.0" promptText="Letters Only" />
+                        <TextField fx:id="politicalParty" layoutX="183.0" layoutY="179.0" promptText="Letters Only" />
                         <TextField fx:id="dateOfBirth" layoutX="183.0" layoutY="230.0" promptText="Numbers only" />
                         <Label layoutX="31.0" layoutY="288.0" text="Imgage URL:" />
-                        <TextField layoutX="183.0" layoutY="284.0" promptText="Leters Only" />
-                        <Button id="green" layoutX="198.0" layoutY="380.0" mnemonicParsing="false" onAction="#addPolitician" prefHeight="59.0" prefWidth="96.0" text="Add">
+                        <TextField fx:id="imageUrl" layoutX="183.0" layoutY="284.0" promptText="Letters Only" />
+                        <Button id="green" layoutX="135.0" layoutY="389.0" mnemonicParsing="false" onAction="#addPolitician" prefHeight="59.0" prefWidth="96.0" text="Add">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
                         <Line endX="210.66671752929688" endY="1.9073486328125E-5" layoutX="115.0" layoutY="60.0" startX="-100.0" />
                         <Line endX="284.66668701171875" endY="1.9073486328125E-5" layoutX="457.0" layoutY="60.0" startX="-72.00003051757812" startY="1.9073486328125E-5" />
-                        <Label layoutX="123.0" layoutY="14.0" prefHeight="35.0" prefWidth="119.0" text="Add Politician" underline="true">
+                        <Label layoutX="123.0" layoutY="14.0" prefHeight="35.0" prefWidth="119.0" text="Add Politician" textAlignment="CENTER" underline="true">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
+                        <Line endX="-100.00003051757812" endY="385.0" layoutX="458.0" layoutY="63.0" startX="-100.0" />
+                        <DialogPane id="but" contentText="Please enter the details for the politician.  Please use only appropriate characters in assigned fields." expanded="true" headerText="Instructions:" layoutX="383.0" layoutY="61.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="360.0" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Add Election">
+          <Tab fx:id="addElectionTab" text="Add Election">
             <content>
               <AnchorPane id="but" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="769.0" />
             </content>
           </Tab>
-            <Tab text="Add Candidate">
+            <Tab fx:id="addCandidateTab" text="Add Candidate">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
-            <Tab text="Update/Delete Item">
+            <Tab fx:id="updateDeleteTab" text="Update/Delete Item">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="505.0" prefWidth="955.0">
                      <children>
-                        <Line endX="0.333343505859375" endY="365.3333435058594" layoutX="322.0" layoutY="58.0" startX="0.333343505859375" startY="-17.333301544189453" />
+                        <Line endX="0.333343505859375" endY="365.3333435058594" layoutX="384.0" layoutY="53.0" startX="0.333343505859375" startY="-17.333301544189453" />
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Search">
+            <Tab fx:id="searchTab" text="Search">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
-            <Tab text="Save/Load">
+            <Tab fx:id="saveLoadTab" text="Save/Load">
               <content>
                 <AnchorPane id="but" fx:id="saveLoadTab" minHeight="0.0" minWidth="0.0" prefHeight="491.0" prefWidth="769.0">
                      <children>
