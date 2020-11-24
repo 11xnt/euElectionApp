@@ -28,6 +28,16 @@ Run down the menu while operating a CRUD-type system
 /*
 FMXL Id-s and fields:
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
+public class PleaseProvideControllerClassName {
+
+    @FXML
+    private Tab addPoliticianTab;
+
     @FXML
     private AnchorPane image;
 
@@ -47,6 +57,18 @@ FMXL Id-s and fields:
     private TextField imageUrl;
 
     @FXML
+    private Tab addElectionTab;
+
+    @FXML
+    private Tab addCandidateTab;
+
+    @FXML
+    private Tab updateDeleteTab;
+
+    @FXML
+    private Tab searchTab;
+
+    @FXML
     private AnchorPane saveLoadTab;
 
     @FXML
@@ -63,5 +85,7 @@ FMXL Id-s and fields:
     void save(ActionEvent event) {
 
     }
+
+}
 
 }*/
