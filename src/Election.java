@@ -37,6 +37,16 @@ public class Election {
         this.numberOfSeats = numberOfSeats;
     }
 
+    @Override
+    public String toString() {
+        return "Election{" +
+                "electionType='" + electionType + '\'' +
+                ", countyLocation='" + countyLocation + '\'' +
+                ", yearOfElection=" + yearOfElection +
+                ", numberOfSeats=" + numberOfSeats +
+                '}';
+    }
+
     public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
         this.electionType = electionType;
         this.countyLocation = countyLocation;

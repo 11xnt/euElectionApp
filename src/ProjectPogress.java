@@ -26,11 +26,13 @@ Run down the menu while operating a CRUD-type system
 
 
 /*
-FMXL Id-s and fields:
+FXML Id-s and fields:
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class PleaseProvideControllerClassName {
@@ -57,7 +59,22 @@ public class PleaseProvideControllerClassName {
     private TextField imageUrl;
 
     @FXML
+    private ImageView imgView;
+
+    @FXML
     private Tab addElectionTab;
+
+    @FXML
+    private TextField electionType;
+
+    @FXML
+    private TextField countyLocation;
+
+    @FXML
+    private TextField electionYear;
+
+    @FXML
+    private TextField numOfSeats;
 
     @FXML
     private Tab addCandidateTab;
@@ -69,7 +86,24 @@ public class PleaseProvideControllerClassName {
     private Tab searchTab;
 
     @FXML
+    private TextField politicianName;
+
+    @FXML
+    private TextField electionName;
+
+    @FXML
+    private CheckBox sortAlphabetical;
+
+    @FXML
+    private CheckBox sortByParty;
+
+    @FXML
     private AnchorPane saveLoadTab;
+
+    @FXML
+    void addElection(ActionEvent event) {
+
+    }
 
     @FXML
     void addPolitician(ActionEvent event) {
@@ -86,6 +120,17 @@ public class PleaseProvideControllerClassName {
 
     }
 
+    @FXML
+    void searchElections(ActionEvent event) {
+
+    }
+
+    @FXML
+    void searchPolitician(ActionEvent event) {
+
+    }
+
 }
+
 
 }*/

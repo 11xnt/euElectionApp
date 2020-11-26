@@ -66,9 +66,19 @@ public class Politician {
         this.image = image;
     }
 
-    public String toString(){
-        return "tbd";
+    @Override
+    public String toString() {
+        return "Politician{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", politicalParty='" + politicalParty + '\'' +
+                ", homeCounty='" + homeCounty + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
+
+
 
 
 }

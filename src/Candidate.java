@@ -1,7 +1,7 @@
 public class Candidate {
 
     int numOfVotes;
-    String partyMembership;  //Not really sure about this field Allen.
+    String partyMembership;
 
     public int getNumOfVotes() {
         return numOfVotes;
@@ -23,4 +23,14 @@ public class Candidate {
         this.numOfVotes = numOfVotes;
         this.partyMembership = partyMembership;
     }
+
+    @Override
+    public String toString() {
+        return "Candidate{" +
+                "numOfVotes=" + numOfVotes +
+                ", partyMembership='" + partyMembership + '\'' +
+                '}';
+    }
+
+
 }
