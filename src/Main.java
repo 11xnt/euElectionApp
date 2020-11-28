@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class Main {
 
     private final Scanner input = new Scanner(System.in);
+    private Politician pol1;
 
     public Main() {
         runMenu();
@@ -116,12 +117,13 @@ public class Main {
 
     //Add new politician
     private void addPolitician() {
-        String firstName = ScannerInput.readNextString("Enter in the Politician's First Name");
-        String secondName = ScannerInput.readNextString("Enter in the Politician's Second Name");
+        String fullName = ScannerInput.readNextString("Enter in the Politician's Full Name: ");
         int dateOfBirth = ScannerInput.readNextInt("Enter in the Politician's DoB (DDMMYY): ");
-        String polParty = ScannerInput.readNextString("Enter in the Politician's party");
-        String county = ScannerInput.readNextString("Enter in the Politician's home county");
-        String image = ScannerInput.readNextString("Please enter a URL of the politician's picture");
+        String polParty = ScannerInput.readNextString("Enter in the Politician's party: ");
+        String county = ScannerInput.readNextString("Enter in the Politician's home county: ");
+        String image = ScannerInput.readNextString("Please enter a URL of the politician's picture: ");
+        pol1 = new Politician(fullName, dateOfBirth, polParty, county, image);
+        pol1.insertPolIntoHash(pol1);
     }
 
     //Add new election
