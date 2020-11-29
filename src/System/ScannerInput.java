@@ -1,3 +1,5 @@
+package System;
+
 import java.util.Scanner;
 
 public class ScannerInput {

@@ -1,3 +1,5 @@
+package System;
+
 public class Election {
 
     String electionType;
@@ -37,6 +39,14 @@ public class Election {
         this.numberOfSeats = numberOfSeats;
     }
 
+
+    public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
+        this.electionType = electionType;
+        this.countyLocation = countyLocation;
+        this.yearOfElection = yearOfElection;
+        this.numberOfSeats = numberOfSeats;
+    }
+
     @Override
     public String toString() {
         return "Election{" +
@@ -45,12 +55,5 @@ public class Election {
                 ", yearOfElection=" + yearOfElection +
                 ", numberOfSeats=" + numberOfSeats +
                 '}';
-    }
-
-    public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
-        this.electionType = electionType;
-        this.countyLocation = countyLocation;
-        this.yearOfElection = yearOfElection;
-        this.numberOfSeats = numberOfSeats;
     }
 }

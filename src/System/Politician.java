@@ -1,4 +1,4 @@
-import java.awt.image.BufferedImage;
+package System;
 
 public class Politician {
 
@@ -8,7 +8,7 @@ public class Politician {
     String homeCounty;
     String image;
 
-    public int hashFunc(Politician politician) {
+/*    public int hashFunc(Politician politician) {
         int total = 0;
         for(int i = 0; i < politician.getFullName().length(); i++) {
             total += politician.getFullName().hashCode();
@@ -19,7 +19,7 @@ public class Politician {
     public Politician insertPolIntoHash(Politician politician) {
         int tableKey = hashFunc(politician);
 
-    }
+    }*/
 
     public String getFullName() {
         return fullName;
@@ -79,7 +79,6 @@ public class Politician {
                 ", image='" + image + '\'' +
                 '}';
     }
-
 
 
 
