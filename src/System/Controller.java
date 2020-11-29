@@ -16,7 +16,10 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    public AnchorPane image;
+    MyList <Politician> politician = new MyList<Politician>();
+    MyList <Election> election = new MyList<Election>();
+    MyList<Candidate> candidate = new MyList<Candidate>();
+
     @FXML
     //all of the tabs in GUI
     TabPane tabPane;
@@ -44,8 +47,12 @@ public class Controller implements Initializable {
     }
 
     public void addPolitician(ActionEvent actionEvent) {
+        Politician p = new Politician(politicianName.getText(), politicalParty.getText(), Integer.parseInt(dateOfBirth.getText()), countyLocation.getText(), imageUrl.getText());
     }
 
     public void addElection(ActionEvent actionEvent) {
+
     }
+
+
 }

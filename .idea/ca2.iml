@@ -19,6 +19,6 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="vm" level="project" />
   </component>
 </module>
