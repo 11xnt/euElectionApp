@@ -1,4 +1,5 @@
-package System; /*****************************************
+package System;
+/*****************************************
  * @author Allen Terescenco & Milan Ples *
  * Elections Information System v1.0     *
  *****************************************/
