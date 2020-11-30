@@ -1,7 +1,7 @@
 /*
 TODO:
 Add few junit test as we progress.
-Learn JavaFX
+Learn JavaFX *****Sorted this shit. Sort of xD
 Run down the menu while operating a CRUD-type system
     //Add new politician
     //Add new election

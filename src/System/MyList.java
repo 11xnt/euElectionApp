@@ -43,6 +43,24 @@ public class MyList<L> {
         numElements --;
     }
 
+    /**
+     * Method to lis all of the nodes.
+     * @return allElements
+     */
+    public String listElementContents() {
+        if (head == null) {
+            return "";
+        } else {
+            LinkedNode element = head;
+            String allElements = head.getContents().toString() + "\n";
+            while (element.next != null) {
+                element = element.next;
+                allElements = allElements + element.getContents().toString() + "\n";
+            }
+            return allElements;
+        }
+    }
+
 
 
 

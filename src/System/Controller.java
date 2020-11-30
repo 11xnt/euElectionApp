@@ -3,6 +3,7 @@ package System;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -47,12 +48,19 @@ public class Controller implements Initializable {
     }
 
     public void addPolitician(ActionEvent actionEvent) {
-        Politician p = new Politician(politicianName.getText(), politicalParty.getText(), Integer.parseInt(dateOfBirth.getText()), countyLocation.getText(), imageUrl.getText());
+      //It bugs out here for some reason.
+        //  Politician p = new Politician(politicianName.getText(), politicalParty.getText(), Integer.parseInt(dateOfBirth.getText()), countyLocation.getText(), imageUrl.getText());
     }
 
     public void addElection(ActionEvent actionEvent) {
-
+        Election e = new Election(countyLocation.getText(),electionType.getText(), Integer.parseInt(numOfSeats.getText()), Integer.parseInt(electionYear.getText()));
+        election.addElement(e);
+        System.out.println(election.listElementContents());
+        // Popup works but gives null pointer, i might play around with it.
+//        Alertbox.alert("Election", "New election added", "Thank you");
+//        addElectionTab.setDisable(false);
     }
+
 
 
 }
