@@ -66,6 +66,12 @@ public class Controller implements Initializable {
     public void editElection(ActionEvent actionEvent) {
     }
 
+    public void addCandidate(ActionEvent actionEvent) {
+    }
+
+    public void editCandidate(ActionEvent actionEvent) {
+    }
+
     public void save(ActionEvent actionEvent) {
     }
 

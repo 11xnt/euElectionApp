@@ -190,12 +190,30 @@
           </Tab>
             <Tab fx:id="candidateTab" text="Candidate">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="179.0" layoutY="217.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="95.0" text="Add Candidate" />
+                        <TextField layoutX="1033.0" layoutY="73.0" />
+                        <TextField layoutX="1033.0" layoutY="124.0" />
+                        <TextField layoutX="153.0" layoutY="124.0" />
+                        <TextField layoutX="153.0" layoutY="73.0" />
+                        <TextField layoutX="590.0" layoutY="380.0" />
+                        <ChoiceBox layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
+                        <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Search">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="123.0" layoutY="66.0" />
+                        <TextField layoutX="123.0" layoutY="110.0" />
+                        <TextField layoutX="1032.0" layoutY="91.0" />
+                        <TextField layoutX="1032.0" layoutY="135.0" />
+                        <ChoiceBox layoutX="796.0" layoutY="98.0" prefWidth="150.0" />
+                        <TextField layoutX="796.0" layoutY="215.0" />
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab fx:id="saveLoadTab" text="Save/Load">
