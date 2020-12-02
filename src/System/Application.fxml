@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="841.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="System.Controller">
@@ -35,39 +40,85 @@
       </MenuBar>
       <TabPane layoutX="1.0" layoutY="27.0" prefHeight="490.0" prefWidth="1282.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="politicianTab" text="Add Politician">
+          <Tab fx:id="politicianTab" text="Politician">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="26.0" layoutY="32.0" prefHeight="35.0" prefWidth="115.0" text="Politician Name">
+                        <Label layoutX="27.0" layoutY="62.0" prefHeight="35.0" prefWidth="115.0" text="Politician Name">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="67.0" prefHeight="35.0" prefWidth="115.0" text="Political Party">
+                        <Label layoutX="27.0" layoutY="97.0" prefHeight="35.0" prefWidth="115.0" text="Political Party">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="102.0" prefHeight="35.0" prefWidth="115.0" text="Date of Birth">
+                        <Label layoutX="27.0" layoutY="132.0" prefHeight="35.0" prefWidth="115.0" text="Date of Birth">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="137.0" prefHeight="35.0" prefWidth="115.0" text="Image">
+                        <Label layoutX="27.0" layoutY="167.0" prefHeight="35.0" prefWidth="115.0" text="Image">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="politicianName" layoutX="142.0" layoutY="37.0" />
-                        <TextField fx:id="politicianParty" layoutX="142.0" layoutY="72.0" />
-                        <TextField fx:id="dateOfBirth" layoutX="142.0" layoutY="107.0" />
-                        <TextField fx:id="imageUrl" layoutX="142.0" layoutY="142.0" />
-                        <Button layoutX="147.0" layoutY="234.0" mnemonicParsing="false" onAction="#addPolitician" prefHeight="60.0" prefWidth="95.0" text="Button" />
+                        <TextField fx:id="politicianName" layoutX="143.0" layoutY="67.0">
+                           <tooltip>
+                              <Tooltip text="Enter a politician name here" />
+                           </tooltip></TextField>
+                        <TextField fx:id="politicianParty" layoutX="143.0" layoutY="102.0" />
+                        <TextField fx:id="dateOfBirth" layoutX="143.0" layoutY="137.0" />
+                        <TextField fx:id="imageUrl" layoutX="143.0" layoutY="172.0" />
+                        <Button layoutX="160.0" layoutY="260.0" mnemonicParsing="false" onAction="#addPolitician" prefHeight="69.0" prefWidth="113.0" text="Add Politician">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <Line endX="-100.0" endY="376.6666564941406" layoutX="741.0" layoutY="84.0" startX="-100.0" startY="-83.99999237060547" />
+                        <ChoiceBox layoutX="668.0" layoutY="67.0" prefWidth="150.0">
+                           <tooltip>
+                              <Tooltip text="Select politician" />
+                           </tooltip>
+                        </ChoiceBox>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="677.0" layoutY="37.0" prefHeight="17.0" prefWidth="132.0" text="Select politician">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="905.0" layoutY="62.0" prefHeight="35.0" prefWidth="115.0" text="Politician Name">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="905.0" layoutY="97.0" prefHeight="35.0" prefWidth="115.0" text="Political Party">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="1049.0" layoutY="102.0" />
+                        <TextField layoutX="1049.0" layoutY="137.0" />
+                        <TextField layoutX="1049.0" layoutY="172.0" />
+                        <Label layoutX="905.0" layoutY="132.0" prefHeight="35.0" prefWidth="115.0" text="Date of Birth">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="905.0" layoutY="167.0" prefHeight="35.0" prefWidth="115.0" text="Image">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="906.0" layoutY="260.0" mnemonicParsing="false" onAction="#updatePolitician" prefHeight="69.0" prefWidth="113.0" text="Update">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="1049.0" layoutY="67.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="electionTab" text="Add Election">
+          <Tab fx:id="electionTab" text="Election">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -93,28 +144,69 @@
                         </Label>
                         <TextField fx:id="electionType" layoutX="221.0" layoutY="26.0" />
                         <TextField fx:id="countyLocation" layoutX="221.0" layoutY="58.0" />
-                        <TextField fx:id="electionYear" layoutX="221.0" layoutY="101.0" />
+                        <TextField fx:id="electionYear" layoutX="221.0" layoutY="96.0" />
                         <TextField fx:id="numOfSeats" layoutX="221.0" layoutY="135.0" />
                         <Button layoutX="173.0" layoutY="254.0" mnemonicParsing="false" onAction="#addElection" prefHeight="60.0" prefWidth="95.0" text="Button" />
+                        <Label layoutX="916.0" layoutY="26.0" prefHeight="25.0" prefWidth="95.0" text="Election Type">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="915.0" layoutY="58.0" prefHeight="25.0" prefWidth="98.0" text="County ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="916.0" layoutY="96.0" prefHeight="25.0" prefWidth="95.0" text="Election Year">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="916.0" layoutY="135.0" prefHeight="25.0" prefWidth="108.0" text="Number of Seats">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="candidateTab" text="Add Candidate">
+            <Tab fx:id="candidateTab" text="Candidate">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
-            <Tab text="Untitled Tab">
+            <Tab text="Search">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
-            <Tab text="Untitled Tab">
+            <Tab fx:id="saveLoadTab" text="Save/Load">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="1282.0">
+                     <children>
+                        <Button layoutX="274.0" layoutY="209.0" mnemonicParsing="false" onAction="#save" prefHeight="60.0" prefWidth="95.0" text="Button" />
+                        <Button layoutX="936.0" layoutY="209.0" mnemonicParsing="false" onAction="#load" prefHeight="60.0" prefWidth="95.0" text="Button" />
+                        <Label layoutX="961.0" layoutY="112.0" prefHeight="35.0" prefWidth="45.0" text="Load">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="303.0" layoutY="111.0" prefHeight="38.0" prefWidth="37.0" text="Save">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="-100.0" endY="245.6666259765625" layoutX="740.0" layoutY="186.0" startX="-100.0" startY="-171.6666717529297" />
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
+      <TableView layoutY="517.0" prefHeight="325.0" prefWidth="1282.0">
+        <columns>
+          <TableColumn prefWidth="615.3333231210709" text="C1" />
+          <TableColumn minWidth="0.0" prefWidth="666.0000915527344" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </Pane>

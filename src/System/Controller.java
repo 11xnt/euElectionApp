@@ -60,7 +60,18 @@ public class Controller implements Initializable {
 //        Alertbox.alert("Election", "New election added", "Thank you");
 //        addElectionTab.setDisable(false);
     }
+    public void updatePolitician(ActionEvent actionEvent) {
+    }
 
+    public void save(ActionEvent actionEvent) {
+    }
+
+    public void load(ActionEvent actionEvent) {
+    }
+
+    public void quit(){
+        System.exit(0);
+    }
 
 
 }

@@ -21,7 +21,7 @@ public class Main extends Application {
         //Sets title
         primaryStage.setTitle("Political System");
         //Sets window size
-        primaryStage.setScene(new Scene(root, 650, 550));
+        primaryStage.setScene(new Scene(root, 1282, 850));
         //Shows GUI
         primaryStage.show();
     }
