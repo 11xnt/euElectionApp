@@ -176,10 +176,15 @@
                         <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
                         <TableView layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
                           <columns>
-                            <TableColumn prefWidth="640.6666361093521" text="C1" />
-                            <TableColumn prefWidth="545.3334045410156" text="C2" />
+                            <TableColumn prefWidth="653.9999799728394" text="C1" />
+                            <TableColumn prefWidth="532.6666870117188" text="C2" />
                           </columns>
                         </TableView>
+                        <TextField layoutX="1070.0" layoutY="26.0" />
+                        <TextField layoutX="1070.0" layoutY="58.0" />
+                        <TextField layoutX="1070.0" layoutY="96.0" />
+                        <TextField layoutX="1070.0" layoutY="130.0" />
+                        <Line endX="-100.0" endY="456.9999694824219" layoutX="741.0" layoutY="3.0" startX="-100.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -195,7 +200,7 @@
             </Tab>
             <Tab fx:id="saveLoadTab" text="Save/Load">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="1282.0">
+                <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="1282.0">
                      <children>
                         <Button layoutX="274.0" layoutY="209.0" mnemonicParsing="false" onAction="#save" prefHeight="60.0" prefWidth="95.0" text="Button" />
                         <Button layoutX="936.0" layoutY="209.0" mnemonicParsing="false" onAction="#load" prefHeight="60.0" prefWidth="95.0" text="Button" />
