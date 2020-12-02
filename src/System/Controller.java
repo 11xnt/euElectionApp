@@ -63,6 +63,9 @@ public class Controller implements Initializable {
     public void updatePolitician(ActionEvent actionEvent) {
     }
 
+    public void editElection(ActionEvent actionEvent) {
+    }
+
     public void save(ActionEvent actionEvent) {
     }
 
@@ -72,6 +75,7 @@ public class Controller implements Initializable {
     public void quit(){
         System.exit(0);
     }
+
 
 
 }

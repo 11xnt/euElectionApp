@@ -38,7 +38,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane layoutX="1.0" layoutY="27.0" prefHeight="490.0" prefWidth="1282.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="1.0" layoutY="27.0" prefHeight="815.0" prefWidth="1282.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="politicianTab" text="Politician">
             <content>
@@ -115,6 +115,12 @@
                            </font>
                         </Button>
                         <TextField layoutX="1049.0" layoutY="67.0" />
+                        <TableView layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -146,7 +152,7 @@
                         <TextField fx:id="countyLocation" layoutX="221.0" layoutY="58.0" />
                         <TextField fx:id="electionYear" layoutX="221.0" layoutY="96.0" />
                         <TextField fx:id="numOfSeats" layoutX="221.0" layoutY="135.0" />
-                        <Button layoutX="173.0" layoutY="254.0" mnemonicParsing="false" onAction="#addElection" prefHeight="60.0" prefWidth="95.0" text="Button" />
+                        <Button layoutX="173.0" layoutY="254.0" mnemonicParsing="false" onAction="#addElection" prefHeight="60.0" prefWidth="95.0" text="Add Election" />
                         <Label layoutX="916.0" layoutY="26.0" prefHeight="25.0" prefWidth="95.0" text="Election Type">
                            <font>
                               <Font size="14.0" />
@@ -167,6 +173,13 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
+                        <TableView layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
+                          <columns>
+                            <TableColumn prefWidth="640.6666361093521" text="C1" />
+                            <TableColumn prefWidth="545.3334045410156" text="C2" />
+                          </columns>
+                        </TableView>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -202,11 +215,5 @@
             </Tab>
         </tabs>
       </TabPane>
-      <TableView layoutY="517.0" prefHeight="325.0" prefWidth="1282.0">
-        <columns>
-          <TableColumn prefWidth="615.3333231210709" text="C1" />
-          <TableColumn minWidth="0.0" prefWidth="666.0000915527344" text="C2" />
-        </columns>
-      </TableView>
    </children>
 </Pane>
