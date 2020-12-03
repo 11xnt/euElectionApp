@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="841.0" prefWidth="1282.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="System.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="841.0" prefWidth="1282.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="System.Controller">
    <children>
       <MenuBar layoutY="2.0">
         <menus>
@@ -46,9 +46,9 @@
       </MenuBar>
       <TabPane layoutX="1.0" layoutY="27.0" prefHeight="815.0" prefWidth="1282.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="politicianTab" text="Politician">
+          <Tab id="but" fx:id="politicianTab" text="Politician">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="27.0" layoutY="62.0" prefHeight="35.0" prefWidth="115.0" text="Politician Name">
                            <font>
@@ -121,7 +121,7 @@
                            </font>
                         </Button>
                         <TextField fx:id="polNameUpdate" layoutX="1049.0" layoutY="67.0" />
-                        <TableView fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
+                        <TableView id="dark" fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
@@ -130,9 +130,9 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="electionTab" text="Election">
+          <Tab id="but" fx:id="electionTab" text="Election">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="42.0" layoutY="26.0" prefHeight="25.0" prefWidth="95.0" text="Election Type">
                            <font>
@@ -180,7 +180,7 @@
                            </font>
                         </Label>
                         <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
-                        <TableView layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
+                        <TableView id="dark" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
                           <columns>
                             <TableColumn prefWidth="653.9999799728394" text="C1" />
                             <TableColumn prefWidth="532.6666870117188" text="C2" />
@@ -194,9 +194,9 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="candidateTab" text="Candidate">
+            <Tab id="but" fx:id="candidateTab" text="Candidate">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="179.0" layoutY="217.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="95.0" text="Add Candidate" />
                         <TextField layoutX="1086.0" layoutY="73.0" prefHeight="25.0" prefWidth="55.0" />
@@ -210,7 +210,7 @@
                         <Label layoutX="973.0" layoutY="77.0" text="Number of Votes:" />
                         <Label layoutX="973.0" layoutY="128.0" text="Party mamber of:" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
-                        <TableView layoutY="393.0" prefHeight="392.0" prefWidth="1282.0">
+                        <TableView id="dark" layoutY="393.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
                             <TableColumn prefWidth="640.6666667461395" text="C1" />
                             <TableColumn prefWidth="422.0" text="C2" />
@@ -220,9 +220,9 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Search">
+            <Tab id="but" text="Search">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField layoutX="123.0" layoutY="66.0" />
                         <TextField layoutX="123.0" layoutY="110.0" />

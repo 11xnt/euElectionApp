@@ -24,6 +24,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1282, 850));
         //Shows GUI
         primaryStage.show();
+
     }
 
 
