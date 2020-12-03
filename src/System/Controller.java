@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
@@ -17,17 +14,42 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+
     MyList <Politician> politician = new MyList<Politician>();
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
 
-    @FXML
+
+    public TableView politicianTable;
+    public Tab politicianTab;
+    public Tab electionTab;
+    public Tab candidateTab;
+    public TextField politicianParty;
+    public TextField polPartyUpdate;
+    public TextField polDobUpdate;
+    public TextField imgUpdate;
+    public TextField polNameUpdate;
+    public TextField electionUpdate;
+    public TextField countyUpdate;
+    public TextField yearUpdate;
+    public TextField updateSeats;
+    public TextField electionType;
+    public TextField countyLocation;
+    public TextField electionYear;
+    public TextField numOfSeats;
+    public TextField imageUrl;
+    public TextField dateOfBirth;
+    public TextField politicianName;
+
+
+
+/*    @FXML
     //all of the tabs in GUI
     TabPane tabPane;
 
     @FXML
     // each tab we will use to connect the dots.
-    Tab addPoliticianTab, addElectionTab, addCandidateTab, updateDeleteTab, searchTab, saveLoadTab;
+    Tab addPoliticianTab, addElectionTab, addCandidateTab, searchTab;
 
     @FXML
     // Text fields for each of the tabs to access. **more will be added as the GUI is built.
@@ -39,7 +61,7 @@ public class Controller implements Initializable {
 
     @FXML
     //image box
-    ImageView imgView;
+    ImageView imgView;*/
 
 
     @Override
