@@ -18,7 +18,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="841.0" prefWidth="1282.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="System.Controller">
+<Pane id="windows7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="841.0" prefWidth="1282.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="System.Controller">
    <children>
       <MenuBar layoutY="2.0">
         <menus>
@@ -123,8 +123,9 @@
                         <TextField fx:id="polNameUpdate" layoutX="1049.0" layoutY="67.0" />
                         <TableView id="dark" fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn prefWidth="124.66668128967285" text="Name" />
+                            <TableColumn prefWidth="258.0000457763672" text="Party" />
+                              <TableColumn prefWidth="213.33328247070312" text="DOB" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -182,8 +183,10 @@
                         <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
                         <TableView id="dark" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
                           <columns>
-                            <TableColumn prefWidth="653.9999799728394" text="C1" />
-                            <TableColumn prefWidth="532.6666870117188" text="C2" />
+                            <TableColumn prefWidth="226.66671180725098" text="Type" />
+                            <TableColumn prefWidth="206.6667022705078" text="County" />
+                              <TableColumn prefWidth="143.33334350585938" text="Election Year" />
+                              <TableColumn prefWidth="120.666748046875" text="Number of Seats" />
                           </columns>
                         </TableView>
                         <TextField fx:id="electionUpdate" layoutX="1070.0" layoutY="26.0" />
@@ -212,15 +215,15 @@
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
                         <TableView id="dark" layoutY="393.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
-                            <TableColumn prefWidth="640.6666667461395" text="C1" />
-                            <TableColumn prefWidth="422.0" text="C2" />
+                            <TableColumn prefWidth="298.66672706604004" text="Number of Votes" />
+                            <TableColumn prefWidth="353.9999084472656" text="Paryt memeber of :" />
                           </columns>
                         </TableView>
                         <Line endX="-2.0" endY="230.0" layoutX="643.0" layoutY="163.0" startX="-2.0" startY="-163.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab id="but" text="Search">
+            <Tab id="but" fx:id="searchTab" text="Search">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

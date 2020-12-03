@@ -19,27 +19,27 @@ public class Controller implements Initializable {
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
 
-
-    public TableView politicianTable;
-    public Tab politicianTab;
-    public Tab electionTab;
-    public Tab candidateTab;
-    public TextField politicianParty;
-    public TextField polPartyUpdate;
-    public TextField polDobUpdate;
-    public TextField imgUpdate;
-    public TextField polNameUpdate;
-    public TextField electionUpdate;
-    public TextField countyUpdate;
-    public TextField yearUpdate;
-    public TextField updateSeats;
-    public TextField electionType;
-    public TextField countyLocation;
-    public TextField electionYear;
-    public TextField numOfSeats;
-    public TextField imageUrl;
-    public TextField dateOfBirth;
-    public TextField politicianName;
+    @FXML private TableView<Election> tableView;
+    @FXML public TableView politicianTable;
+    @FXML public Tab politicianTab;
+    @FXML public Tab electionTab;
+    @FXML public Tab candidateTab;
+    @FXML public TextField politicianParty;
+    @FXML public TextField polPartyUpdate;
+    @FXML public TextField polDobUpdate;
+    @FXML public TextField imgUpdate;
+    @FXML public TextField polNameUpdate;
+    @FXML public TextField electionUpdate;
+    @FXML public TextField countyUpdate;
+    @FXML public TextField yearUpdate;
+    @FXML public TextField updateSeats;
+    @FXML public TextField electionType;
+    @FXML public TextField countyLocation;
+    @FXML public TextField electionYear;
+    @FXML public TextField numOfSeats;
+    @FXML public TextField imageUrl;
+    @FXML public TextField dateOfBirth;
+    @FXML public TextField politicianName;
 
 
 
@@ -71,7 +71,9 @@ public class Controller implements Initializable {
 
     public void addPolitician(ActionEvent actionEvent) {
       //It bugs out here for some reason.
-        //  Politician p = new Politician(politicianName.getText(), politicalParty.getText(), Integer.parseInt(dateOfBirth.getText()), countyLocation.getText(), imageUrl.getText());
+          Politician p = new Politician (politicianName.getText(), Integer.parseInt(dateOfBirth.getText()), politicianParty.getText(), countyLocation.getText(), imageUrl.getText());
+          politician.addElement(p);
+          System.out.println(politician.listElementContents());
     }
 
     public void addElection(ActionEvent actionEvent) {
