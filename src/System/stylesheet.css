@@ -39,7 +39,7 @@
 #green:hover
 {
     -fx-background-color:
-            linear-gradient(#a9ff00,#f0ff35),
+            linear-gradient(#a9ff00, #f0ff35),
             radial-gradient(center 50% -40%, radius 200%, #80c800 45%, #b8ee36 50%);
     -fx-background-radius: 6,5;
     -fx-background-insets: 0,1;

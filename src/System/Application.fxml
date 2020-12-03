@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -23,20 +24,25 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
+              <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
+          <Menu mnemonicParsing="false" text="Help" />
         </menus>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </MenuBar>
       <TabPane layoutX="1.0" layoutY="27.0" prefHeight="815.0" prefWidth="1282.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -96,9 +102,9 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="1049.0" layoutY="102.0" />
-                        <TextField layoutX="1049.0" layoutY="137.0" />
-                        <TextField layoutX="1049.0" layoutY="172.0" />
+                        <TextField fx:id="polPartyUpdate" layoutX="1049.0" layoutY="102.0" />
+                        <TextField fx:id="polDobUpdate" layoutX="1049.0" layoutY="137.0" />
+                        <TextField fx:id="imgUpdate" layoutX="1049.0" layoutY="172.0" />
                         <Label layoutX="905.0" layoutY="132.0" prefHeight="35.0" prefWidth="115.0" text="Date of Birth">
                            <font>
                               <Font size="14.0" />
@@ -114,8 +120,8 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="1049.0" layoutY="67.0" />
-                        <TableView layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
+                        <TextField fx:id="polNameUpdate" layoutX="1049.0" layoutY="67.0" />
+                        <TableView fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
@@ -180,10 +186,10 @@
                             <TableColumn prefWidth="532.6666870117188" text="C2" />
                           </columns>
                         </TableView>
-                        <TextField layoutX="1070.0" layoutY="26.0" />
-                        <TextField layoutX="1070.0" layoutY="58.0" />
-                        <TextField layoutX="1070.0" layoutY="96.0" />
-                        <TextField layoutX="1070.0" layoutY="130.0" />
+                        <TextField fx:id="electionUpdate" layoutX="1070.0" layoutY="26.0" />
+                        <TextField fx:id="countyUpdate" layoutX="1070.0" layoutY="58.0" />
+                        <TextField fx:id="yearUpdate" layoutX="1070.0" layoutY="96.0" />
+                        <TextField fx:id="updateSeats" layoutX="1070.0" layoutY="130.0" />
                         <Line endX="-100.0" endY="456.9999694824219" layoutX="741.0" layoutY="3.0" startX="-100.0" />
                      </children></AnchorPane>
             </content>
@@ -193,13 +199,24 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="179.0" layoutY="217.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="95.0" text="Add Candidate" />
-                        <TextField layoutX="1033.0" layoutY="73.0" />
-                        <TextField layoutX="1033.0" layoutY="124.0" />
+                        <TextField layoutX="1086.0" layoutY="73.0" prefHeight="25.0" prefWidth="55.0" />
+                        <TextField layoutX="1085.0" layoutY="124.0" prefHeight="25.0" prefWidth="97.0" />
                         <TextField layoutX="153.0" layoutY="124.0" />
-                        <TextField layoutX="153.0" layoutY="73.0" />
-                        <TextField layoutX="590.0" layoutY="380.0" />
+                        <TextField layoutX="153.0" layoutY="73.0" prefHeight="25.0" prefWidth="51.0" />
                         <ChoiceBox layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
                         <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
+                        <Label layoutX="54.0" layoutY="77.0" text="Number of votes:" />
+                        <Label layoutX="54.0" layoutY="128.0" text="Party member of:" />
+                        <Label layoutX="973.0" layoutY="77.0" text="Number of Votes:" />
+                        <Label layoutX="973.0" layoutY="128.0" text="Party mamber of:" />
+                        <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
+                        <TableView layoutY="393.0" prefHeight="392.0" prefWidth="1282.0">
+                          <columns>
+                            <TableColumn prefWidth="640.6666667461395" text="C1" />
+                            <TableColumn prefWidth="422.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <Line endX="-2.0" endY="230.0" layoutX="643.0" layoutY="163.0" startX="-2.0" startY="-163.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -213,26 +230,6 @@
                         <TextField layoutX="1032.0" layoutY="135.0" />
                         <ChoiceBox layoutX="796.0" layoutY="98.0" prefWidth="150.0" />
                         <TextField layoutX="796.0" layoutY="215.0" />
-                     </children></AnchorPane>
-              </content>
-            </Tab>
-            <Tab fx:id="saveLoadTab" text="Save/Load">
-              <content>
-                <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="1282.0">
-                     <children>
-                        <Button layoutX="274.0" layoutY="209.0" mnemonicParsing="false" onAction="#save" prefHeight="60.0" prefWidth="95.0" text="Button" />
-                        <Button layoutX="936.0" layoutY="209.0" mnemonicParsing="false" onAction="#load" prefHeight="60.0" prefWidth="95.0" text="Button" />
-                        <Label layoutX="961.0" layoutY="112.0" prefHeight="35.0" prefWidth="45.0" text="Load">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="303.0" layoutY="111.0" prefHeight="38.0" prefWidth="37.0" text="Save">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Line endX="-100.0" endY="245.6666259765625" layoutX="740.0" layoutY="186.0" startX="-100.0" startY="-171.6666717529297" />
                      </children></AnchorPane>
               </content>
             </Tab>
