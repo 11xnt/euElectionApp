@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
@@ -20,8 +21,7 @@ public class Controller implements Initializable {
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
 
-    @FXML private TableView<Election> tableView;
-    @FXML public TableView politicianTable;
+    @FXML private TableView<Politician> politicianTable;
     @FXML public Tab politicianTab;
     @FXML public Tab electionTab;
     @FXML public Tab candidateTab;
@@ -42,7 +42,21 @@ public class Controller implements Initializable {
     @FXML public TextField imageUrl;
     @FXML public TextField dateOfBirth;
     @FXML public TextField politicianName;
+    @FXML public TableColumn<Politician, String> politicianNameT;
+    @FXML public TableColumn<Politician, String> politicianPartyT;
+    @FXML public TableColumn<Politician, String> dateOfBirthT;
 
+    public void loadTable(){
+        politicianNameT.setCellValueFactory(new PropertyValueFactory<Politician,String>("fullName"));
+        politicianPartyT.setCellValueFactory(new PropertyValueFactory<Politician,String>("politicalParty"));
+        dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician,String>("dateOfBirth"));
+        LinkedNode<Politician> politicianNode = politician.head;
+        while(politicianNode != null){
+            politicianTable.getItems().add(politicianNode.getContents());
+            politicianNode = politicianNode.next;
+        }
+
+    }
 
 
 /*    @FXML
@@ -76,6 +90,7 @@ public class Controller implements Initializable {
           Politician p = new Politician (politicianName.getText(), Integer.parseInt(dateOfBirth.getText()), politicianParty.getText(), countyLocation.getText(), imageUrl.getText());
           politician.addElement(p);
           System.out.println(politician.listElementContents());
+          loadTable();
     }
 
     public void addElection(ActionEvent actionEvent) {

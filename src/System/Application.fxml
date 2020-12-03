@@ -123,9 +123,9 @@
                         <TextField fx:id="polNameUpdate" layoutX="1049.0" layoutY="67.0" />
                         <TableView id="dark" fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
-                            <TableColumn prefWidth="124.66668128967285" text="Name" />
-                            <TableColumn prefWidth="258.0000457763672" text="Party" />
-                              <TableColumn prefWidth="213.33328247070312" text="DOB" />
+                            <TableColumn fx:id="politicianNameT" prefWidth="124.66668128967285" text="Name" />
+                            <TableColumn fx:id="politicianPartyT" prefWidth="258.0000457763672" text="Party" />
+                              <TableColumn fx:id="dateOfBirthT" prefWidth="213.33328247070312" text="DOB" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -213,7 +213,7 @@
                         <Label layoutX="973.0" layoutY="77.0" text="Number of Votes:" />
                         <Label layoutX="973.0" layoutY="128.0" text="Party mamber of:" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
-                        <TableView id="dark" layoutY="393.0" prefHeight="392.0" prefWidth="1282.0">
+                        <TableView id="dark" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
                             <TableColumn prefWidth="298.66672706604004" text="Number of Votes" />
                             <TableColumn prefWidth="353.9999084472656" text="Paryt memeber of :" />

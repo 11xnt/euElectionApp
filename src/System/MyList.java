@@ -7,16 +7,17 @@ package System;
 
 public class MyList<L> {
 
-    public LinkedNode <L> head = null;
+    public LinkedNode<L> head = null;
     int numElements = 0;
 
     /**
      * Method to add an element to the node
+     *
      * @param e
      */
 
-    public void addElement(L e){
-        LinkedNode <L> lnode = new LinkedNode<>();
+    public void addElement(L e) {
+        LinkedNode<L> lnode = new LinkedNode<L>();
         lnode.setContents(e);
         lnode.next = head;
         head = lnode;
@@ -25,26 +26,28 @@ public class MyList<L> {
 
     /**
      * Method to delete a node.
+     *
      * @param d
      */
-    public void deleteElement(int d){
+    public void deleteElement(int d) {
 
         LinkedNode temp = head;
-        if (d == 0){
+        if (d == 0) {
             head = temp.next;
-        }else{
-            int i =1;
-            while (i > d){
+        } else {
+            int i = 1;
+            while (i > d) {
                 temp = temp.next;
                 i++;
             }
             temp.next = temp.next.next;
         }
-        numElements --;
+        numElements--;
     }
 
     /**
      * Method to lis all of the nodes.
+     *
      * @return allElements
      */
     public String listElementContents() {
@@ -61,29 +64,9 @@ public class MyList<L> {
         }
     }
 
-
-
-
-    /**
-     * Linked Node Class
-     * @param <N>
-     */
-
-    class LinkedNode<N> {
-
-        public LinkedNode<N> next=null;
-        private N contents;
-
-    //Gets the contents of the node//
-        public N getContents() {
-            return contents;
-        }
-    //Sets the contents of the node//
-        public void setContents(N c) {
-            contents=c;
-        }
-    }
 }
+
+
 
 
 
