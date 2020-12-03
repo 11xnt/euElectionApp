@@ -8,19 +8,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-
-import javax.swing.text.html.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
 
-
     MyList <Politician> politician = new MyList<Politician>();
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
 
+    @FXML private TableView<Election> electionTable;
     @FXML private TableView<Politician> politicianTable;
     @FXML public Tab politicianTab;
     @FXML public Tab electionTab;
@@ -42,43 +40,41 @@ public class Controller implements Initializable {
     @FXML public TextField imageUrl;
     @FXML public TextField dateOfBirth;
     @FXML public TextField politicianName;
+    @FXML public TextField politicianCounty;
     @FXML public TableColumn<Politician, String> politicianNameT;
     @FXML public TableColumn<Politician, String> politicianPartyT;
-    @FXML public TableColumn<Politician, String> dateOfBirthT;
+    @FXML public TableColumn<Politician, Integer> dateOfBirthT;
+    @FXML public TableColumn<Politician, String> countyLocationT;
+    @FXML public TableColumn<Election, String> electionTypeT;
+    @FXML public TableColumn<Election, String> countyT;
+    @FXML public TableColumn<Election, Integer> electionYearT;
+    @FXML public TableColumn<Election, Integer> numOfSeatsT;
 
     public void loadTable(){
         politicianNameT.setCellValueFactory(new PropertyValueFactory<Politician,String>("fullName"));
         politicianPartyT.setCellValueFactory(new PropertyValueFactory<Politician,String>("politicalParty"));
-        dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician,String>("dateOfBirth"));
+        dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician,Integer>("dateOfBirth"));
+        countyLocationT.setCellValueFactory(new PropertyValueFactory<Politician,String>("homeCounty"));
+
+        electionTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
+        countyT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
+        electionYearT.setCellValueFactory(new PropertyValueFactory<Election, Integer>("yearOfElection"));
+        numOfSeatsT.setCellValueFactory(new PropertyValueFactory<Election, Integer>("numberOfSeats"));
+
+
         LinkedNode<Politician> politicianNode = politician.head;
         while(politicianNode != null){
             politicianTable.getItems().add(politicianNode.getContents());
             politicianNode = politicianNode.next;
         }
+        LinkedNode<Election> electionNode = election.head;
+        while(electionNode !=null){
+            electionTable.getItems().add(electionNode.getContents());
+            electionNode = electionNode.next;
+        }
+
 
     }
-
-
-/*    @FXML
-    //all of the tabs in GUI
-    TabPane tabPane;
-
-    @FXML
-    // each tab we will use to connect the dots.
-    Tab addPoliticianTab, addElectionTab, addCandidateTab, searchTab;
-
-    @FXML
-    // Text fields for each of the tabs to access. **more will be added as the GUI is built.
-    TextField politicianName, politicalParty, dateOfBirth, imageUrl, electionType, countyLocation, electionYear, numOfSeats, electionName;
-
-    @FXML
-    // selectors for sorting
-    ChoiceBox sortAlphabetical, sortByParty;
-
-    @FXML
-    //image box
-    ImageView imgView;*/
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,7 +82,6 @@ public class Controller implements Initializable {
     }
 
     public void addPolitician(ActionEvent actionEvent) {
-      //It bugs out here for some reason.
           Politician p = new Politician (politicianName.getText(), Integer.parseInt(dateOfBirth.getText()), politicianParty.getText(), countyLocation.getText(), imageUrl.getText());
           politician.addElement(p);
           System.out.println(politician.listElementContents());
@@ -97,9 +92,9 @@ public class Controller implements Initializable {
         Election e = new Election(countyLocation.getText(),electionType.getText(), Integer.parseInt(numOfSeats.getText()), Integer.parseInt(electionYear.getText()));
         election.addElement(e);
         System.out.println(election.listElementContents());
-        // Popup works but gives null pointer, i might play around with it.
-//        Alertbox.alert("Election", "New election added", "Thank you");
-//        addElectionTab.setDisable(false);
+        loadTable();
+        Alertbox.alert("Election", "New election added", "Thank you");
+        electionTab.setDisable(false);
     }
     public void updatePolitician(ActionEvent actionEvent) {
     }

@@ -89,6 +89,7 @@
                               <TableColumn fx:id="countyLocationT" prefWidth="238.666748046875" text="County" />
                           </columns>
                         </TableView>
+                        <TextField fx:id="politicianCounty" layoutX="143.0" layoutY="205.0" promptText="County" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -102,12 +103,12 @@
                         <TextField fx:id="numOfSeats" layoutX="221.0" layoutY="135.0" promptText="Number of Seats" />
                         <Button layoutX="247.0" layoutY="254.0" mnemonicParsing="false" onAction="#addElection" prefHeight="60.0" prefWidth="95.0" text="Add Election" />
                         <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
-                        <TableView id="dark" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
+                        <TableView id="dark" fx:id="electionTable" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
                           <columns>
-                            <TableColumn prefWidth="226.66671180725098" text="Type" />
-                            <TableColumn prefWidth="206.6667022705078" text="County" />
-                              <TableColumn prefWidth="143.33334350585938" text="Election Year" />
-                              <TableColumn prefWidth="120.666748046875" text="Number of Seats" />
+                            <TableColumn fx:id="electionTypeT" prefWidth="226.66671180725098" text="Type" />
+                            <TableColumn fx:id="countyT" prefWidth="206.6667022705078" text="County" />
+                              <TableColumn fx:id="electionYearT" prefWidth="143.33334350585938" text="Election Year" />
+                              <TableColumn fx:id="numOfSeatsT" prefWidth="120.666748046875" text="Number of Seats" />
                           </columns>
                         </TableView>
                         <TextField fx:id="electionUpdate" layoutX="895.0" layoutY="31.0" promptText="Update election type" />
@@ -123,16 +124,12 @@
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="179.0" layoutY="217.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="95.0" text="Add Candidate" />
-                        <TextField layoutX="1086.0" layoutY="73.0" prefHeight="25.0" prefWidth="55.0" />
-                        <TextField layoutX="1085.0" layoutY="124.0" prefHeight="25.0" prefWidth="97.0" />
-                        <TextField layoutX="153.0" layoutY="124.0" />
-                        <TextField layoutX="153.0" layoutY="73.0" prefHeight="25.0" prefWidth="51.0" />
+                        <TextField layoutX="941.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" promptText="Update number of votes" />
+                        <TextField layoutX="941.0" layoutY="124.0" prefHeight="26.0" prefWidth="159.0" promptText="Update party membership" />
+                        <TextField layoutX="153.0" layoutY="124.0" promptText="Party member of:" />
+                        <TextField layoutX="153.0" layoutY="73.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes" />
                         <ChoiceBox layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
                         <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
-                        <Label layoutX="54.0" layoutY="77.0" text="Number of votes:" />
-                        <Label layoutX="54.0" layoutY="128.0" text="Party member of:" />
-                        <Label layoutX="973.0" layoutY="77.0" text="Number of Votes:" />
-                        <Label layoutX="973.0" layoutY="128.0" text="Party mamber of:" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
                         <TableView id="dark" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
