@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
 
+
     MyList <Politician> politician = new MyList<Politician>();
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
@@ -24,6 +25,7 @@ public class Controller implements Initializable {
     @FXML public Tab politicianTab;
     @FXML public Tab electionTab;
     @FXML public Tab candidateTab;
+    @FXML public Tab searchTab;
     @FXML public TextField politicianParty;
     @FXML public TextField polPartyUpdate;
     @FXML public TextField polDobUpdate;
