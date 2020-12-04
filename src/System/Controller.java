@@ -1,5 +1,7 @@
 package System;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +10,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,13 +24,15 @@ public class Controller implements Initializable {
     MyList <Politician> politician = new MyList<Politician>();
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
-
+    //Initialized table view
     @FXML private TableView<Election> electionTable;
     @FXML private TableView<Politician> politicianTable;
+    //Al tabs used
     @FXML public Tab politicianTab;
     @FXML public Tab electionTab;
     @FXML public Tab candidateTab;
     @FXML public Tab searchTab;
+    //Text fields
     @FXML public TextField politicianParty;
     @FXML public TextField polPartyUpdate;
     @FXML public TextField polDobUpdate;
@@ -41,10 +50,12 @@ public class Controller implements Initializable {
     @FXML public TextField dateOfBirth;
     @FXML public TextField politicianName;
     @FXML public TextField politicianCounty;
+    //Politician Tables
     @FXML public TableColumn<Politician, String> politicianNameT;
     @FXML public TableColumn<Politician, String> politicianPartyT;
     @FXML public TableColumn<Politician, Integer> dateOfBirthT;
     @FXML public TableColumn<Politician, String> countyLocationT;
+    //Elections Tables
     @FXML public TableColumn<Election, String> electionTypeT;
     @FXML public TableColumn<Election, String> countyT;
     @FXML public TableColumn<Election, Integer> electionYearT;
@@ -108,10 +119,24 @@ public class Controller implements Initializable {
     public void editCandidate(ActionEvent actionEvent) {
     }
 
-    public void save(ActionEvent actionEvent) {
+    public void save(ActionEvent actionEvent) throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("SystemData.xml"));
+        out.writeObject(politician);
+        out.close();
+        Alertbox.alert("Political system", "System has been saved", "Click ok to continue");
     }
 
-    public void load(ActionEvent actionEvent) {
+    public void load(ActionEvent actionEvent) throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("SystemData.xml"));
+        politician = (MyList<Politician>) is.readObject();
+        is.close();
+        //Enables tabs
+        politicianTab.setDisable(false);
+        electionTab.setDisable(false);
+        candidateTab.setDisable(false);
+        searchTab.setDisable(false);
     }
 
     public void quit(){
