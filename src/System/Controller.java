@@ -5,12 +5,8 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
@@ -24,20 +20,40 @@ public class Controller implements Initializable {
     MyList <Politician> politician = new MyList<Politician>();
     MyList <Election> election = new MyList<Election>();
     MyList<Candidate> candidate = new MyList<Candidate>();
+
     //Initialized table view
-    @FXML private TableView<Election> electionTable;
-    @FXML private TableView<Politician> politicianTable;
+    @FXML public TableView<Election> electionTable;
+    @FXML public TableView<Politician> politicianTable;
+
     //Al tabs used
     @FXML public Tab politicianTab;
     @FXML public Tab electionTab;
     @FXML public Tab candidateTab;
     @FXML public Tab searchTab;
-    //Text fields
+
+    //Text fields Politician
     @FXML public TextField politicianParty;
     @FXML public TextField polPartyUpdate;
     @FXML public TextField polDobUpdate;
     @FXML public TextField imgUpdate;
+    @FXML public TextField imageUrl;
     @FXML public TextField polNameUpdate;
+    @FXML public TextField politicianName;
+    @FXML public TextField politicianCounty;
+
+    //Politician Tables
+    @FXML public TableColumn<Politician, String> politicianNameT;
+    @FXML public TableColumn<Politician, String> politicianPartyT;
+    @FXML public TableColumn<Politician, Integer> dateOfBirthT;
+    @FXML public TableColumn<Politician, String> countyLocationT;
+
+    //Elections Tables
+    @FXML public TableColumn<Election, String> electionTypeT;
+    @FXML public TableColumn<Election, String> countyT;
+    @FXML public TableColumn<Election, Integer> electionYearT;
+    @FXML public TableColumn<Election, Integer> numOfSeatsT;
+
+    //Text fields Election
     @FXML public TextField electionUpdate;
     @FXML public TextField countyUpdate;
     @FXML public TextField yearUpdate;
@@ -46,20 +62,18 @@ public class Controller implements Initializable {
     @FXML public TextField countyLocation;
     @FXML public TextField electionYear;
     @FXML public TextField numOfSeats;
-    @FXML public TextField imageUrl;
     @FXML public TextField dateOfBirth;
-    @FXML public TextField politicianName;
-    @FXML public TextField politicianCounty;
-    //Politician Tables
-    @FXML public TableColumn<Politician, String> politicianNameT;
-    @FXML public TableColumn<Politician, String> politicianPartyT;
-    @FXML public TableColumn<Politician, Integer> dateOfBirthT;
-    @FXML public TableColumn<Politician, String> countyLocationT;
-    //Elections Tables
-    @FXML public TableColumn<Election, String> electionTypeT;
-    @FXML public TableColumn<Election, String> countyT;
-    @FXML public TableColumn<Election, Integer> electionYearT;
-    @FXML public TableColumn<Election, Integer> numOfSeatsT;
+
+    //Candidate Tables
+    @FXML public TableColumn<Candidate,String> numOfVotesT;
+    @FXML public TableColumn<Candidate,String> candidatePartyT;
+
+    //Candidate text fields
+    public TextField updateCandidateVotes;
+    public TextField updateCandidateParty;
+    public TextField candidateParty;
+    public TextField candidateVotes;
+    public ChoiceBox selectCandidate;
 
     public void loadTable(){
         politicianNameT.setCellValueFactory(new PropertyValueFactory<Politician,String>("fullName"));
@@ -107,13 +121,19 @@ public class Controller implements Initializable {
         Alertbox.alert("Election", "New election added", "Thank you");
         electionTab.setDisable(false);
     }
+
+    public void addCandidate(ActionEvent actionEvent) {
+        Candidate c = new Candidate(Integer.parseInt(candidateVotes.getText()),candidateParty.getText());
+        candidate.addElement(c);
+        System.out.println(candidate.listElementContents());
+
+    }
+
+
     public void updatePolitician(ActionEvent actionEvent) {
     }
 
     public void editElection(ActionEvent actionEvent) {
-    }
-
-    public void addCandidate(ActionEvent actionEvent) {
     }
 
     public void editCandidate(ActionEvent actionEvent) {

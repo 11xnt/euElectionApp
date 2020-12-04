@@ -54,9 +54,18 @@
                            <tooltip>
                               <Tooltip text="Enter a politician name here" />
                            </tooltip></TextField>
-                        <TextField fx:id="politicianParty" layoutX="143.0" layoutY="102.0" promptText="Political Party" />
-                        <TextField fx:id="dateOfBirth" layoutX="143.0" layoutY="137.0" promptText="Date of Birth" />
-                        <TextField fx:id="imageUrl" layoutX="143.0" layoutY="172.0" promptText="Image Url" />
+                        <TextField fx:id="politicianParty" layoutX="143.0" layoutY="102.0" promptText="Political Party">
+                           <tooltip>
+                              <Tooltip text="Enter politician party " />
+                           </tooltip></TextField>
+                        <TextField fx:id="dateOfBirth" layoutX="143.0" layoutY="137.0" promptText="Date of Birth">
+                           <tooltip>
+                              <Tooltip text="Enter politician date of birth" />
+                           </tooltip></TextField>
+                        <TextField fx:id="imageUrl" layoutX="143.0" layoutY="172.0" promptText="Image Url">
+                           <tooltip>
+                              <Tooltip text="Enter url of the politician image" />
+                           </tooltip></TextField>
                         <Button layoutX="160.0" layoutY="260.0" mnemonicParsing="false" onAction="#addPolitician" prefHeight="69.0" prefWidth="113.0" text="Add Politician">
                            <font>
                               <Font size="14.0" />
@@ -72,15 +81,27 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="polPartyUpdate" layoutX="906.0" layoutY="107.0" promptText="Update politician Party" />
-                        <TextField fx:id="polDobUpdate" layoutX="906.0" layoutY="142.0" promptText="Update D.O.B" />
-                        <TextField fx:id="imgUpdate" layoutX="906.0" layoutY="177.0" promptText="update img Url" />
+                        <TextField fx:id="polPartyUpdate" layoutX="906.0" layoutY="107.0" promptText="Update politician Party">
+                           <tooltip>
+                              <Tooltip text="Update politician party" />
+                           </tooltip></TextField>
+                        <TextField fx:id="polDobUpdate" layoutX="906.0" layoutY="142.0" promptText="Update D.O.B">
+                           <tooltip>
+                              <Tooltip text="Update politician date of birth " />
+                           </tooltip></TextField>
+                        <TextField fx:id="imgUpdate" layoutX="906.0" layoutY="177.0" promptText="update img Url">
+                           <tooltip>
+                              <Tooltip text="Update politician image url location" />
+                           </tooltip></TextField>
                         <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" onAction="#updatePolitician" prefHeight="69.0" prefWidth="113.0" text="Update">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="polNameUpdate" layoutX="906.0" layoutY="72.0" promptText="Update politican name" />
+                        <TextField fx:id="polNameUpdate" layoutX="906.0" layoutY="72.0" promptText="Update politican name">
+                           <tooltip>
+                              <Tooltip text="Update politician name" />
+                           </tooltip></TextField>
                         <TableView id="dark" fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
                             <TableColumn fx:id="politicianNameT" prefWidth="124.66668128967285" text="Name" />
@@ -89,7 +110,11 @@
                               <TableColumn fx:id="countyLocationT" prefWidth="238.666748046875" text="County" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="politicianCounty" layoutX="143.0" layoutY="205.0" promptText="County" />
+                        <TextField fx:id="politicianCounty" layoutX="143.0" layoutY="205.0" promptText="County">
+                           <tooltip>
+                              <Tooltip text="Enter politician county" />
+                           </tooltip>
+                        </TextField>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -97,10 +122,22 @@
             <content>
               <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="electionType" layoutX="221.0" layoutY="26.0" promptText="Election Type" />
-                        <TextField fx:id="countyLocation" layoutX="221.0" layoutY="58.0" promptText="County" />
-                        <TextField fx:id="electionYear" layoutX="221.0" layoutY="96.0" promptText="Election Year" />
-                        <TextField fx:id="numOfSeats" layoutX="221.0" layoutY="135.0" promptText="Number of Seats" />
+                        <TextField fx:id="electionType" layoutX="221.0" layoutY="26.0" promptText="Election Type">
+                           <tooltip>
+                              <Tooltip text="Enter election type here" />
+                           </tooltip></TextField>
+                        <TextField fx:id="countyLocation" layoutX="221.0" layoutY="58.0" promptText="County">
+                           <tooltip>
+                              <Tooltip text="Enter the election county" />
+                           </tooltip></TextField>
+                        <TextField fx:id="electionYear" layoutX="221.0" layoutY="96.0" promptText="Election Year">
+                           <tooltip>
+                              <Tooltip text="Enter the election year " />
+                           </tooltip></TextField>
+                        <TextField fx:id="numOfSeats" layoutX="221.0" layoutY="135.0" promptText="Number of Seats">
+                           <tooltip>
+                              <Tooltip text="Enter the number of seats won in the election" />
+                           </tooltip></TextField>
                         <Button layoutX="247.0" layoutY="254.0" mnemonicParsing="false" onAction="#addElection" prefHeight="60.0" prefWidth="95.0" text="Add Election" />
                         <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
                         <TableView id="dark" fx:id="electionTable" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
@@ -111,10 +148,22 @@
                               <TableColumn fx:id="numOfSeatsT" prefWidth="120.666748046875" text="Number of Seats" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="electionUpdate" layoutX="895.0" layoutY="31.0" promptText="Update election type" />
-                        <TextField fx:id="countyUpdate" layoutX="895.0" layoutY="63.0" promptText="Update county" />
-                        <TextField fx:id="yearUpdate" layoutX="895.0" layoutY="101.0" promptText="Update election year" />
-                        <TextField fx:id="updateSeats" layoutX="895.0" layoutY="135.0" promptText="Update num of seats" />
+                        <TextField fx:id="electionUpdate" layoutX="895.0" layoutY="31.0" promptText="Update election type">
+                           <tooltip>
+                              <Tooltip text="Update election type " />
+                           </tooltip></TextField>
+                        <TextField fx:id="countyUpdate" layoutX="895.0" layoutY="63.0" promptText="Update county">
+                           <tooltip>
+                              <Tooltip text="Update election county" />
+                           </tooltip></TextField>
+                        <TextField fx:id="yearUpdate" layoutX="895.0" layoutY="101.0" promptText="Update election year">
+                           <tooltip>
+                              <Tooltip text="Update election type" />
+                           </tooltip></TextField>
+                        <TextField fx:id="updateSeats" layoutX="895.0" layoutY="135.0" promptText="Update num of seats">
+                           <tooltip>
+                              <Tooltip text="Update number of seats won in the election" />
+                           </tooltip></TextField>
                         <Line endX="-100.0" endY="456.9999694824219" layoutX="741.0" layoutY="3.0" startX="-100.0" />
                      </children></AnchorPane>
             </content>
@@ -124,17 +173,29 @@
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="179.0" layoutY="217.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="95.0" text="Add Candidate" />
-                        <TextField layoutX="941.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" promptText="Update number of votes" />
-                        <TextField layoutX="941.0" layoutY="124.0" prefHeight="26.0" prefWidth="159.0" promptText="Update party membership" />
-                        <TextField layoutX="153.0" layoutY="124.0" promptText="Party member of:" />
-                        <TextField layoutX="153.0" layoutY="73.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes" />
-                        <ChoiceBox layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
+                        <TextField fx:id="updateCandidateVotes" layoutX="941.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" promptText="Update number of votes">
+                           <tooltip>
+                              <Tooltip text="Update candidate number of votes" />
+                           </tooltip></TextField>
+                        <TextField fx:id="updateCandidateParty" layoutX="941.0" layoutY="124.0" prefHeight="26.0" prefWidth="159.0" promptText="Update party membership">
+                           <tooltip>
+                              <Tooltip text="Update candidate party membership" />
+                           </tooltip></TextField>
+                        <TextField fx:id="candidateParty" layoutX="153.0" layoutY="124.0" promptText="Party member of:">
+                           <tooltip>
+                              <Tooltip text="Candidate party membership" />
+                           </tooltip></TextField>
+                        <TextField fx:id="candidateVotes" layoutX="153.0" layoutY="73.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes">
+                           <tooltip>
+                              <Tooltip text="Enter number of votes won by the candidate" />
+                           </tooltip></TextField>
+                        <ChoiceBox fx:id="selectCandidate" layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
                         <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
                         <TableView id="dark" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
-                            <TableColumn prefWidth="298.66672706604004" text="Number of Votes" />
-                            <TableColumn prefWidth="353.9999084472656" text="Paryt memeber of :" />
+                            <TableColumn fx:id="numOfVotesT" prefWidth="298.66672706604004" text="Number of Votes" />
+                            <TableColumn fx:id="candidatePartyT" prefWidth="353.9999084472656" text="Party memeber of :" />
                           </columns>
                         </TableView>
                         <Line endX="-2.0" endY="230.0" layoutX="643.0" layoutY="163.0" startX="-2.0" startY="-163.0" />
