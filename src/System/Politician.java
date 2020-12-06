@@ -8,18 +8,13 @@ public class Politician {
     String homeCounty;
     String image;
 
-/*    public int hashFunc(Politician politician) {
-        int total = 0;
-        for(int i = 0; i < politician.getFullName().length(); i++) {
-            total += politician.getFullName().hashCode();
-        }
-        return (total%10);
+    public Politician(String fullName, int dateOfBirth, String politicalParty, String homeCounty, String image) {
+        if(Utilities.onlyContainsLetters(fullName)) this.fullName = fullName;
+        this.dateOfBirth = dateOfBirth;
+        if(Utilities.onlyContainsLetters(politicalParty)) this.politicalParty = politicalParty;
+        if(Utilities.onlyContainsLetters(homeCounty)) this.homeCounty = homeCounty;
+        this.image = image;
     }
-
-    public Politician insertPolIntoHash(Politician politician) {
-        int tableKey = hashFunc(politician);
-
-    }*/
 
     public String getFullName() {
         return fullName;
@@ -61,23 +56,13 @@ public class Politician {
         this.image = image;
     }
 
-    public Politician(String fullName, int dateOfBirth, String politicalParty, String homeCounty, String image) {
-        if(Utilities.onlyContainsLetters(fullName)) this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
-        if(Utilities.onlyContainsLetters(politicalParty)) this.politicalParty = politicalParty;
-        if(Utilities.onlyContainsLetters(homeCounty)) this.homeCounty = homeCounty;
-        this.image = image;
-    }
-
     @Override
     public String toString() {
-        return "Politician{" +
-                "fullName='" + fullName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", politicalParty='" + politicalParty + '\'' +
-                ", homeCounty='" + homeCounty + '\'' +
-                ", image='" + image + '\'' +
-                '}';
+        return "Full Name: " + fullName + '\n' +
+                "Date Of Birth: " + dateOfBirth + '\n' +
+                "Political Party: " + politicalParty + '\n' +
+                "Home County: " + homeCounty + '\n' +
+                "URL Image: " + image + '\n';
     }
 
 

@@ -50,19 +50,23 @@
             <content>
               <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="politicianName" layoutX="143.0" layoutY="67.0" promptText="Politician Name">
+                        <TextField fx:id="politicianName" layoutX="142.0" layoutY="67.0" promptText="Politician Name">
                            <tooltip>
                               <Tooltip text="Enter a politician name here" />
                            </tooltip></TextField>
-                        <TextField fx:id="politicianParty" layoutX="143.0" layoutY="102.0" promptText="Political Party">
+                        <TextField fx:id="politicianParty" layoutX="142.0" layoutY="102.0" promptText="Political Party">
                            <tooltip>
                               <Tooltip text="Enter politician party " />
                            </tooltip></TextField>
-                        <TextField fx:id="dateOfBirth" layoutX="143.0" layoutY="137.0" promptText="Date of Birth">
+                        <TextField fx:id="dateOfBirth" layoutX="142.0" layoutY="137.0" promptText="Date of Birth">
                            <tooltip>
                               <Tooltip text="Enter politician date of birth" />
                            </tooltip></TextField>
-                        <TextField fx:id="imageUrl" layoutX="143.0" layoutY="172.0" promptText="Image Url">
+                         <TextField fx:id="politicianCounty" layoutX="142.0" layoutY="170.0" promptText="Home County">
+                             <tooltip>
+                                 <Tooltip text="Enter Home County of Politician" />
+                             </tooltip></TextField>
+                        <TextField fx:id="imageUrl" layoutX="142.0" layoutY="203.0" promptText="Image Url">
                            <tooltip>
                               <Tooltip text="Enter url of the politician image" />
                            </tooltip></TextField>
@@ -81,6 +85,11 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                         <TextField fx:id="politicianCountyUpdate" layoutX="906.0" layoutY="211.0" promptText="Update Politician County">
+                             <tooltip>
+                                 <Tooltip text="Enter politician county" />
+                             </tooltip>
+                         </TextField>
                         <TextField fx:id="polPartyUpdate" layoutX="906.0" layoutY="107.0" promptText="Update politician Party">
                            <tooltip>
                               <Tooltip text="Update politician party" />
@@ -98,7 +107,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="polNameUpdate" layoutX="906.0" layoutY="72.0" promptText="Update politican name">
+                        <TextField fx:id="polNameUpdate" layoutX="906.0" layoutY="72.0" promptText="Update politician name">
                            <tooltip>
                               <Tooltip text="Update politician name" />
                            </tooltip></TextField>
@@ -108,13 +117,9 @@
                             <TableColumn fx:id="politicianPartyT" prefWidth="258.0000457763672" text="Party" />
                               <TableColumn fx:id="dateOfBirthT" prefWidth="213.33328247070312" text="DOB" />
                               <TableColumn fx:id="countyLocationT" prefWidth="238.666748046875" text="County" />
+                              <TableColumn fx:id="imageUrlT" prefWidth="405.0" text="URL" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="politicianCounty" layoutX="143.0" layoutY="205.0" promptText="County">
-                           <tooltip>
-                              <Tooltip text="Enter politician county" />
-                           </tooltip>
-                        </TextField>
                      </children></AnchorPane>
             </content>
           </Tab>

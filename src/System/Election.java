@@ -7,6 +7,13 @@ public class Election {
     int yearOfElection;
     int numberOfSeats;
 
+    public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
+        this.electionType = electionType;
+        this.countyLocation = countyLocation;
+        this.yearOfElection = yearOfElection;
+        this.numberOfSeats = numberOfSeats;
+    }
+
     public String getElectionType() {
         return electionType;
     }
@@ -39,21 +46,11 @@ public class Election {
         this.numberOfSeats = numberOfSeats;
     }
 
-
-    public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
-        this.electionType = electionType;
-        this.countyLocation = countyLocation;
-        this.yearOfElection = yearOfElection;
-        this.numberOfSeats = numberOfSeats;
-    }
-
     @Override
     public String toString() {
-        return "Election{" +
-                "electionType='" + electionType + '\'' +
-                ", countyLocation='" + countyLocation + '\'' +
-                ", yearOfElection=" + yearOfElection +
-                ", numberOfSeats=" + numberOfSeats +
-                '}';
+        return "Election Type: " + electionType + '\n' +
+                "County Location: " + countyLocation + '\n' +
+                "Year Of Election: " + yearOfElection + '\n' +
+                "Number Of Seats: " + numberOfSeats + '\n';
     }
 }

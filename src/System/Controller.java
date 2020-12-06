@@ -19,7 +19,7 @@ public class Controller implements Initializable {
 
     MyList <Politician> politician = new MyList<Politician>();
     MyList <Election> election = new MyList<Election>();
-    MyList<Candidate> candidate = new MyList<Candidate>();
+    MyList <Candidate> candidate = new MyList<Candidate>();
 
     //Initialized table view
     @FXML public TableView<Election> electionTable;
@@ -40,12 +40,14 @@ public class Controller implements Initializable {
     @FXML public TextField polNameUpdate;
     @FXML public TextField politicianName;
     @FXML public TextField politicianCounty;
+    @FXML public TextField politicianCountyUpdate;
 
     //Politician Tables
     @FXML public TableColumn<Politician, String> politicianNameT;
     @FXML public TableColumn<Politician, String> politicianPartyT;
     @FXML public TableColumn<Politician, Integer> dateOfBirthT;
     @FXML public TableColumn<Politician, String> countyLocationT;
+    @FXML public TableColumn<Politician, String> imageUrlT;
 
     //Elections Tables
     @FXML public TableColumn<Election, String> electionTypeT;
@@ -80,6 +82,7 @@ public class Controller implements Initializable {
         politicianPartyT.setCellValueFactory(new PropertyValueFactory<Politician,String>("politicalParty"));
         dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician,Integer>("dateOfBirth"));
         countyLocationT.setCellValueFactory(new PropertyValueFactory<Politician,String>("homeCounty"));
+        imageUrlT.setCellValueFactory(new PropertyValueFactory<Politician,String>("image"));
 
         electionTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
         countyT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
@@ -107,7 +110,7 @@ public class Controller implements Initializable {
     }
 
     public void addPolitician(ActionEvent actionEvent) {
-          Politician p = new Politician (politicianName.getText(), Integer.parseInt(dateOfBirth.getText()), politicianParty.getText(), countyLocation.getText(), imageUrl.getText());
+          Politician p = new Politician (politicianName.getText(), Integer.parseInt(dateOfBirth.getText()), politicianParty.getText(), politicianCounty.getText(), imageUrl.getText());
           politician.addElement(p);
           System.out.println(politician.listElementContents());
           loadTable();
