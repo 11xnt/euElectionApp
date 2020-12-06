@@ -158,7 +158,6 @@ public class Controller implements Initializable {
         candidateTab.setDisable(false);
         searchTab.setDisable(false);
     }
-
     public void quit(){
         System.exit(0);
     }
