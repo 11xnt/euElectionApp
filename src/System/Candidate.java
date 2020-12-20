@@ -2,10 +2,33 @@ package System;
 
 public class Candidate {
 
-    int numOfVotes;
-    String partyMembership;
+    private int numOfVotes;
+    private String candidateParty;
+    private String candidateName;
 
-    public int getNumOfVotes() {
+    public Candidate(String candidateName, String candidateParty, int numOfVotes) {
+        this.candidateName = candidateName;
+        this.candidateParty = candidateParty;
+        this.numOfVotes = numOfVotes;
+    }
+
+    public String getCandidateParty() {
+        return candidateParty;
+    }
+
+    public void setCandidateParty(String candidateParty) {
+        this.candidateParty = candidateParty;
+    }
+
+    public String getCandidateName() {
+        return candidateName;
+    }
+
+    public void setCandidateName(String candidateName) {
+        this.candidateName = candidateName;
+    }
+
+    private int getNumOfVotes() {
         return numOfVotes;
     }
 
@@ -13,24 +36,12 @@ public class Candidate {
         this.numOfVotes = numOfVotes;
     }
 
-    public String getPartyMembership() {
-        return partyMembership;
-    }
-
-    public void setPartyMembership(String partyMembership) {
-        this.partyMembership = partyMembership;
-    }
-
-    public Candidate(int numOfVotes, String partyMembership) {
-        this.numOfVotes = numOfVotes;
-        this.partyMembership = partyMembership;
-    }
 
     @Override
     public String toString() {
         return "Candidate{" +
                 "numOfVotes=" + numOfVotes +
-                ", partyMembership='" + partyMembership + '\'' +
+                '\'' +
                 '}';
     }
 

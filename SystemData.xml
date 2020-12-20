@@ -1,45 +1,5 @@
 <object-stream>
   <System.MyList>
-    <head>
-      <next>
-        <next>
-          <next>
-            <next>
-              <contents class="System.Politician">
-                <fullName>qwwwwwwwwww</fullName>
-                <dateOfBirth>1123322</dateOfBirth>
-                <politicalParty>qwqwqwqqwq</politicalParty>
-                <image>qaswd</image>
-              </contents>
-            </next>
-            <contents class="System.Politician">
-              <fullName>qwwwwwwwwww</fullName>
-              <dateOfBirth>1123322</dateOfBirth>
-              <politicalParty>qwqwqwqqwq</politicalParty>
-              <image>qaswd</image>
-            </contents>
-          </next>
-          <contents class="System.Politician">
-            <fullName>qwwwwwwwwww</fullName>
-            <dateOfBirth>1123322</dateOfBirth>
-            <politicalParty>qwqwqwqqwq</politicalParty>
-            <image>qaswd</image>
-          </contents>
-        </next>
-        <contents class="System.Politician">
-          <fullName>qwwwwwwwwww</fullName>
-          <dateOfBirth>1123322</dateOfBirth>
-          <politicalParty>qwqwqwqqwq</politicalParty>
-          <image>qaswd</image>
-        </contents>
-      </next>
-      <contents class="System.Politician">
-        <fullName>qwwwwwwwwww</fullName>
-        <dateOfBirth>1123322</dateOfBirth>
-        <politicalParty>qwqwqwqqwq</politicalParty>
-        <image>qaswd</image>
-      </contents>
-    </head>
-    <numElements>5</numElements>
+    <numElements>0</numElements>
   </System.MyList>
 </object-stream>

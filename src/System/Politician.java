@@ -2,11 +2,11 @@ package System;
 
 public class Politician {
 
-    String fullName;
-    int dateOfBirth;
-    String politicalParty;
-    String homeCounty;
-    String image;
+    private String fullName;
+    private int dateOfBirth;
+    private String politicalParty;
+    private String homeCounty;
+    private String image;
 
     public Politician(String fullName, int dateOfBirth, String politicalParty, String homeCounty, String image) {
         if(Utilities.onlyContainsLetters(fullName)) this.fullName = fullName;

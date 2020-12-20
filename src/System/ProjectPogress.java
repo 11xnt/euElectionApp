@@ -3,9 +3,9 @@ TODO:
 Add few junit test as we progress.
 Learn JavaFX *****Sorted this shit. Sort of xD
 Run down the menu while operating a CRUD-type system
-    //Add new politician
-    //Add new election
-    //Add new candidate to an election
+    //Add new politician         DONE
+    //Add new election           DONE
+    //Add new candidate to an election          Needs to reworked
 
     //Update politician
     //Delete politician
@@ -21,7 +21,7 @@ Run down the menu while operating a CRUD-type system
             // searches should be sorted by choice of user: name, party, year (ascending or descending), election type
             // view search results toString and etc
 
-    //Save and Load (.xml)
+    //Save and Load (.xml)      It works somewhat
 */
 
 

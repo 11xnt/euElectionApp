@@ -2,10 +2,11 @@ package System;
 
 public class Election {
 
-    String electionType;
-    String countyLocation;
-    int yearOfElection;
-    int numberOfSeats;
+    private String electionType;
+    private String countyLocation;
+    private int yearOfElection;
+    private int numberOfSeats;
+    private MyList<Candidate> candidateList = new MyList<Candidate>();
 
     public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
         this.electionType = electionType;
@@ -45,6 +46,8 @@ public class Election {
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
+
+    public MyList<Candidate> getCandidateList() { return candidateList;}
 
     @Override
     public String toString() {
