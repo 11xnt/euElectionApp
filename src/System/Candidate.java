@@ -3,21 +3,21 @@ package System;
 public class Candidate {
 
     private int numOfVotes;
-    private String candidateParty;
+    private String electionName;
     private String candidateName;
 
-    public Candidate(String candidateName, String candidateParty, int numOfVotes) {
+    public Candidate(String candidateName, String electionName, int numOfVotes) {
         this.candidateName = candidateName;
-        this.candidateParty = candidateParty;
+        this.electionName = electionName;
         this.numOfVotes = numOfVotes;
     }
 
-    public String getCandidateParty() {
-        return candidateParty;
+    public String getElectionName() {
+        return electionName;
     }
 
-    public void setCandidateParty(String candidateParty) {
-        this.candidateParty = candidateParty;
+    public void setElectionName(String electionName) {
+        this.electionName = electionName;
     }
 
     public String getCandidateName() {

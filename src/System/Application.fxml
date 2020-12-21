@@ -75,7 +75,7 @@
                               <Font size="14.0" />
                            </font></Button>
                         <Line endX="-100.0" endY="376.6666564941406" layoutX="741.0" layoutY="84.0" startX="-100.0" startY="-83.99999237060547" />
-                        <ChoiceBox layoutX="668.0" layoutY="67.0" prefWidth="150.0">
+                        <ChoiceBox fx:id="politicianList" layoutX="668.0" layoutY="67.0" prefWidth="150.0">
                            <tooltip>
                               <Tooltip text="Select politician" />
                            </tooltip>
@@ -177,7 +177,7 @@
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="179.0" layoutY="217.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="95.0" text="Add Candidate" />
+                        <Button layoutX="267.0" layoutY="277.0" mnemonicParsing="false" onAction="#addCandidate" prefHeight="60.0" prefWidth="166.0" text="Add Candidate" />
                         <TextField fx:id="updateCandidateVotes" layoutX="941.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" promptText="Update number of votes">
                            <tooltip>
                               <Tooltip text="Update candidate number of votes" />
@@ -186,25 +186,25 @@
                            <tooltip>
                               <Tooltip text="Update candidate party membership" />
                            </tooltip></TextField>
-                        <TextField fx:id="candidateVotes" layoutX="153.0" layoutY="111.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes:">
+                        <TextField fx:id="candidateVotes" layoutX="274.0" layoutY="217.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes:">
                            <tooltip>
                               <Tooltip text="Enter number of votes won by the candidate" />
                            </tooltip></TextField>
                         <ChoiceBox fx:id="selectCandidate" layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
                         <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
-                        <TableView id="dark" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
+                        <TableView id="dark" fx:id="candidateTable" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
-                              <TableColumn fx:id="candidateNameT" prefWidth="298.66672706604004" text="Election" />
-                            <TableColumn fx:id="candidatePartyT" prefWidth="353.9999084472656" text="Candidate" />
+                              <TableColumn fx:id="candidateNameT" prefWidth="298.66672706604004" text="Candidate" />
+                            <TableColumn fx:id="electionT" prefWidth="353.9999084472656" text="Election" />
                             <TableColumn fx:id="numOfVotesT" prefWidth="298.66672706604004" text="Number of Votes" />
                           </columns>
                         </TableView>
                         <Line endX="-2.0" endY="230.0" layoutX="643.0" layoutY="163.0" startX="-2.0" startY="-163.0" />
                         <ChoiceBox fx:id="electionList" accessibleHelp="asd" accessibleText="xzc" layoutX="152.0" layoutY="36.0" prefWidth="150.0" />
-                        <ChoiceBox fx:id="politicianList" layoutX="152.0" layoutY="73.0" prefWidth="150.0" />
-                        <Label layoutX="37.0" layoutY="41.0" text="Select Election" />
-                        <Label layoutX="34.0" layoutY="78.0" text="Select Politician" />
+                        <ChoiceBox fx:id="politicianList" layoutX="401.0" layoutY="36.0" prefWidth="150.0" />
+                        <Label layoutX="186.0" layoutY="14.0" text="Select Election" />
+                        <Label layoutX="432.0" layoutY="14.0" text="Select Politician" />
                      </children></AnchorPane>
               </content>
             </Tab>
