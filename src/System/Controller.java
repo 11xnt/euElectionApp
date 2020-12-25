@@ -106,22 +106,25 @@ public class Controller implements Initializable {
 
     //Candidate Tables
     @FXML
-    public TableColumn<Candidate, String> candidateNameT;
+    public TableColumn<Candidate, String> candidateT;
     @FXML
     public TableColumn<Candidate, String> electionT;
     @FXML
-    public TableColumn<Candidate, Integer> numOfVotesT;
-
-
+    public TableColumn<Candidate, Integer> numberOfVotesT;
 
     //Candidate text fields
+    @FXML
     public TextField updateCandidateVotes;
+    @FXML
     public TextField updateCandidateParty;
-    public TextField candidateName;
-    public TextField candidateParty;
-    public TextField candidateVotes;
+    @FXML
+    public TextField numberOfVotes;
+
+    @FXML
     public ChoiceBox electionList;
+    @FXML
     public ChoiceBox politicianList;
+    @FXML
     public ChoiceBox candidateList;
 
     public void loadElectionTable() {
@@ -151,12 +154,24 @@ public class Controller implements Initializable {
         }
     }
 
-    public void loadCandidateTable() {
-        candidateNameT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
+    public void loadCandidateTable(Election election1) {
+        candidateT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
         electionT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("electionName"));
-        numOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, Integer>("numOfVotes"));
+        numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, Integer>("numOfVotes"));
 
-        LinkedNode<Candidate> candidateNode = myCandidateList.head;
+        LinkedNode<Candidate> candidateNode = election1.getCandidateList().head;
+        while (candidateNode != null) {
+            candidateTable.getItems().add(election1.getCandidateList().head.getContents());
+            candidateNode = candidateNode.next;
+        }
+    }
+
+    public void reloadCandidateTable() {
+        candidateT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
+        electionT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("electionName"));
+        numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, Integer>("numOfVotes"));
+
+        LinkedNode<Candidate> candidateNode = election.getCandidateList().head;
         while (candidateNode != null) {
             candidateTable.getItems().add(candidateNode.getContents());
             candidateNode = candidateNode.next;
@@ -209,26 +224,18 @@ public class Controller implements Initializable {
         loadElectionChoiceBox();
     }
 
-
-    //select what election you want to add a politician to
-    //select politician
-    //add how many votes the candidate got
-    //inserts politician into the candidateList of the election
-    //super duper bugged, logic is there but its not right
     public void addCandidate(ActionEvent actionEvent) {
         LinkedNode<Election> electionNode = myElectionList.head;
-        while(electionNode != null) {
-            if(electionList.getValue().toString().matches(electionNode.toString())) {
+        Candidate c;
+        while(electionNode != null && electionNode.getContents().equals(electionList.getValue())) {
                 Election election1 = electionNode.getContents();
-                Candidate c = new Candidate(politicianList.getItems().toString(), electionList.getItems().toString(), Integer.parseInt(candidateVotes.getText()));
-                election1.getCandidateList().addElement(c);
-            } else {
-                electionNode = myElectionList.head.next;
-            }
-
+                    c = new Candidate(politicianList.getValue().toString(), electionList.getValue().toString(), Integer.parseInt(numberOfVotes.getText()));
+                    election1.getCandidateList().addElement(c);
+                    System.out.println(election1.getCandidateList().listElementContents());
+                    loadCandidateTable(election1);
+                    loadCandidateChoiceBox();
+                    electionNode = electionNode.next;
         }
-        System.out.println(myCandidateList.listElementContents());
-        loadCandidateTable();
     }
 
 
@@ -246,30 +253,39 @@ public class Controller implements Initializable {
 
     public void save(ActionEvent actionEvent) throws Exception {
         XStream xstream = new XStream(new DomDriver());
-        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("SystemData.xml"));
-        out.writeObject(myPoliticianList);
-        out.close();
+        ObjectOutputStream polout = xstream.createObjectOutputStream(new FileWriter("PoliticianData.xml"));
+        ObjectOutputStream elecout = xstream.createObjectOutputStream(new FileWriter("ElectionData.xml"));
+        polout.writeObject(myPoliticianList);
+        elecout.writeObject(myElectionList);
+        polout.close();
+        elecout.close();
         Alertbox.alert("Political system", "System has been saved", "Click ok to continue");
     }
 
+    //loads everything bar the candidate table
     public void load(ActionEvent actionEvent) throws Exception {
         XStream xstream = new XStream(new DomDriver());
-        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("SystemData.xml"));
-        myPoliticianList = (MyList<Politician>) is.readObject();
-        is.close();
+        ObjectInputStream pol = xstream.createObjectInputStream(new FileReader("PoliticianData.xml"));
+        ObjectInputStream elec = xstream.createObjectInputStream(new FileReader("ElectionData.xml"));
+        myPoliticianList = (MyList<Politician>) pol.readObject();
+        myElectionList = (MyList<Election>) elec.readObject();
+        pol.close();
+        elec.close();
         //Enables tabs
         politicianTab.setDisable(false);
         electionTab.setDisable(false);
         candidateTab.setDisable(false);
         searchTab.setDisable(false);
+        //Reloads tables and choice-boxes
+        loadElectionChoiceBox();
+        loadPoliticianChoiceBox();
+        loadCandidateChoiceBox();
         loadPoliticianTable();
-        loadCandidateTable();
         loadElectionTable();
     }
+
     public void quit(){
         System.exit(0);
     }
-
-
 
 }

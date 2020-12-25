@@ -186,7 +186,7 @@
                            <tooltip>
                               <Tooltip text="Update candidate party membership" />
                            </tooltip></TextField>
-                        <TextField fx:id="candidateVotes" layoutX="274.0" layoutY="217.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes:">
+                        <TextField fx:id="numberOfVotes" layoutX="274.0" layoutY="217.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes:">
                            <tooltip>
                               <Tooltip text="Enter number of votes won by the candidate" />
                            </tooltip></TextField>
@@ -195,9 +195,9 @@
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
                         <TableView id="dark" fx:id="candidateTable" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
-                              <TableColumn fx:id="candidateNameT" prefWidth="298.66672706604004" text="Candidate" />
+                              <TableColumn fx:id="candidateT" prefWidth="298.66672706604004" text="Candidate" />
                             <TableColumn fx:id="electionT" prefWidth="353.9999084472656" text="Election" />
-                            <TableColumn fx:id="numOfVotesT" prefWidth="298.66672706604004" text="Number of Votes" />
+                            <TableColumn fx:id="numberOfVotesT" prefWidth="298.66672706604004" text="Number of Votes" />
                           </columns>
                         </TableView>
                         <Line endX="-2.0" endY="230.0" layoutX="643.0" layoutY="163.0" startX="-2.0" startY="-163.0" />

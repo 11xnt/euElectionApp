@@ -28,7 +28,7 @@ public class Candidate {
         this.candidateName = candidateName;
     }
 
-    private int getNumOfVotes() {
+    public int getNumOfVotes() {
         return numOfVotes;
     }
 
@@ -39,10 +39,9 @@ public class Candidate {
 
     @Override
     public String toString() {
-        return "Candidate{" +
-                "numOfVotes=" + numOfVotes +
-                '\'' +
-                '}';
+        return "Number of Votes: " + numOfVotes + '\n' +
+                "Election: " + electionName + '\n' +
+                "Candidate: " + candidateName;
     }
 
 
