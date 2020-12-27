@@ -140,6 +140,8 @@ public class Controller implements Initializable {
             electionTable.getItems().add(electionNode.getContents());
             electionNode = electionNode.next;
         }
+
+        electionTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     public void loadPoliticianTable() {
@@ -154,6 +156,7 @@ public class Controller implements Initializable {
             politicianTable.getItems().add(politicianNode.getContents());
             politicianNode = politicianNode.next;
         }
+        politicianTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     public void loadCandidateTable(Election election1) {
@@ -166,6 +169,7 @@ public class Controller implements Initializable {
             candidateTable.getItems().add(election1.getCandidateList().head.getContents());
             candidateNode = candidateNode.next;
         }
+        candidateTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     public void reloadCandidateTable() {
@@ -262,6 +266,28 @@ public class Controller implements Initializable {
 
         allPoliticians.removeAll(selectedRows);
     }
+
+    public void  removeElection(){
+        ObservableList <Election> selectedRows, allElections;
+        allElections = electionTable.getItems();
+
+        selectedRows = electionTable.getSelectionModel().getSelectedItems();
+
+        allElections.removeAll(selectedRows);
+    }
+
+    public void  removeCandidate(){
+        ObservableList <Candidate> selectedRows, allCandidates;
+        allCandidates = candidateTable.getItems();
+
+        selectedRows = candidateTable.getSelectionModel().getSelectedItems();
+
+        allCandidates.removeAll(selectedRows);
+    }
+
+
+
+
 
 
 
