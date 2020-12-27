@@ -2,6 +2,7 @@ package System;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +32,7 @@ public class Controller implements Initializable {
     public TableView<Politician> politicianTable;
     @FXML
     public TableView<Candidate> candidateTable;
+
 
     //Al tabs used
     @FXML
@@ -178,6 +180,7 @@ public class Controller implements Initializable {
         }
     }
 
+
     public void loadElectionChoiceBox() {
         LinkedNode<Election> electionNode = myElectionList.head;
         while (electionNode != null) {
@@ -250,6 +253,17 @@ public class Controller implements Initializable {
     public void editCandidate(ActionEvent actionEvent) {
 
     }
+
+    public void  removePolitician(){
+        ObservableList <Politician> selectedRows, allPoliticians;
+        allPoliticians = politicianTable.getItems();
+
+        selectedRows = politicianTable.getSelectionModel().getSelectedItems();
+
+        allPoliticians.removeAll(selectedRows);
+    }
+
+
 
     public void save(ActionEvent actionEvent) throws Exception {
         XStream xstream = new XStream(new DomDriver());

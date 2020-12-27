@@ -74,8 +74,8 @@
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-                        <Line endX="-100.0" endY="376.6666564941406" layoutX="741.0" layoutY="84.0" startX="-100.0" startY="-83.99999237060547" />
-                        <ChoiceBox fx:id="politicianList" layoutX="668.0" layoutY="67.0" prefWidth="150.0">
+                        <Line endX="-100.0" endY="232.0" layoutX="741.0" layoutY="84.0" startX="-100.0" startY="-83.99999237060547" />
+                        <ChoiceBox fx:id="politicianListP" layoutX="668.0" layoutY="67.0" prefWidth="150.0">
                            <tooltip>
                               <Tooltip text="Select politician" />
                            </tooltip>
@@ -120,6 +120,11 @@
                               <TableColumn fx:id="imageUrlT" prefWidth="405.0" text="URL" />
                           </columns>
                         </TableView>
+                        <Button layoutX="553.0" layoutY="359.0" mnemonicParsing="false" onAction="#removePolitician" prefHeight="86.0" prefWidth="177.0" text="Remove Politician">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
