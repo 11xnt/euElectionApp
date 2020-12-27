@@ -75,7 +75,7 @@
                               <Font size="14.0" />
                            </font></Button>
                         <Line endX="-100.0" endY="232.0" layoutX="741.0" layoutY="84.0" startX="-100.0" startY="-83.99999237060547" />
-                        <ChoiceBox fx:id="politicianListP" layoutX="668.0" layoutY="67.0" prefWidth="150.0">
+                        <ChoiceBox fx:id="updatePoliticianList" layoutX="668.0" layoutY="67.0" prefWidth="150.0">
                            <tooltip>
                               <Tooltip text="Select politician" />
                            </tooltip>
@@ -102,7 +102,7 @@
                            <tooltip>
                               <Tooltip text="Update politician image url location" />
                            </tooltip></TextField>
-                        <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" onAction="#updatePolitician" prefHeight="69.0" prefWidth="113.0" text="Update">
+                        <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" onAction="#editPolitician" prefHeight="69.0" prefWidth="113.0" text="Update">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -175,6 +175,8 @@
                               <Tooltip text="Update number of seats won in the election" />
                            </tooltip></TextField>
                         <Line endX="-100.0" endY="456.9999694824219" layoutX="741.0" layoutY="3.0" startX="-100.0" />
+                        <Label layoutX="714.0" layoutY="23.0" text="Selection Election" />
+                        <ChoiceBox fx:id="updateElectionList" layoutX="689.0" layoutY="51.0" prefWidth="150.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -195,7 +197,7 @@
                            <tooltip>
                               <Tooltip text="Enter number of votes won by the candidate" />
                            </tooltip></TextField>
-                        <ChoiceBox fx:id="selectCandidate" layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="updateCandidateList" layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
                         <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
                         <TableView id="dark" fx:id="candidateTable" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
