@@ -85,11 +85,10 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                         <TextField fx:id="politicianCountyUpdate" layoutX="906.0" layoutY="211.0" promptText="Update Politician County">
-                             <tooltip>
-                                 <Tooltip text="Enter politician county" />
-                             </tooltip>
-                         </TextField>
+                        <TextField fx:id="polNameUpdate" layoutX="906.0" layoutY="72.0" promptText="Update politician name">
+                           <tooltip>
+                              <Tooltip text="Update politician name" />
+                           </tooltip></TextField>
                         <TextField fx:id="polPartyUpdate" layoutX="906.0" layoutY="107.0" promptText="Update politician Party">
                            <tooltip>
                               <Tooltip text="Update politician party" />
@@ -102,15 +101,16 @@
                            <tooltip>
                               <Tooltip text="Update politician image url location" />
                            </tooltip></TextField>
-                        <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" onAction="#editPolitician" prefHeight="69.0" prefWidth="113.0" text="Update">
+                         <TextField fx:id="politicianCountyUpdate" layoutX="906.0" layoutY="211.0" promptText="Update Politician County">
+                             <tooltip>
+                                 <Tooltip text="Enter politician county" />
+                             </tooltip>
+                         </TextField>
+                        <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" onAction="#editPolitician" prefHeight="69.0" prefWidth="113.0" text="Edit">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="polNameUpdate" layoutX="906.0" layoutY="72.0" promptText="Update politician name">
-                           <tooltip>
-                              <Tooltip text="Update politician name" />
-                           </tooltip></TextField>
                         <TableView id="dark" fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
                             <TableColumn fx:id="politicianNameT" prefWidth="124.66668128967285" text="Name" />
@@ -189,16 +189,12 @@
                            <tooltip>
                               <Tooltip text="Update candidate number of votes" />
                            </tooltip></TextField>
-                        <TextField fx:id="updateCandidateParty" layoutX="941.0" layoutY="124.0" prefHeight="26.0" prefWidth="159.0" promptText="Update party membership">
-                           <tooltip>
-                              <Tooltip text="Update candidate party membership" />
-                           </tooltip></TextField>
                         <TextField fx:id="numberOfVotes" layoutX="274.0" layoutY="217.0" prefHeight="26.0" prefWidth="151.0" promptText="Number of votes:">
                            <tooltip>
                               <Tooltip text="Enter number of votes won by the candidate" />
                            </tooltip></TextField>
                         <ChoiceBox fx:id="updateCandidateList" layoutX="753.0" layoutY="73.0" prefWidth="150.0" />
-                        <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit Candidate" />
+                        <Button layoutX="973.0" layoutY="217.0" mnemonicParsing="false" onAction="#editCandidate" prefHeight="60.0" prefWidth="95.0" text="Edit" />
                         <Label layoutX="784.0" layoutY="40.0" text="Select Candidate" />
                         <TableView id="dark" fx:id="candidateTable" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
