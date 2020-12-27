@@ -125,9 +125,16 @@ public class Controller implements Initializable {
     @FXML
     public ChoiceBox electionList;
     @FXML
+    public ChoiceBox updateElectionList;
+    @FXML
     public ChoiceBox politicianList;
     @FXML
+    public ChoiceBox updatePoliticianList;
+    @FXML
     public ChoiceBox candidateList;
+    @FXML
+    public ChoiceBox updateCandidateList;
+
 
     public void loadElectionTable() {
         electionTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
@@ -192,6 +199,15 @@ public class Controller implements Initializable {
             electionNode = electionNode.next;
         }
     }
+
+    public void loadUpdateElectionChoiceBox() {
+        LinkedNode<Election> electionNode = myElectionList.head;
+        while (electionNode != null) {
+            updateElectionList.getItems().add(electionNode.getContents());
+            electionNode = electionNode.next;
+        }
+    }
+
     public void loadPoliticianChoiceBox() {
         LinkedNode<Politician> politicianNode = myPoliticianList.head;
         while (politicianNode != null) {
@@ -200,10 +216,27 @@ public class Controller implements Initializable {
         }
     }
 
+    public void loadUpdatePoliticianChoiceBox() {
+        LinkedNode<Politician> politicianNode = myPoliticianList.head;
+        while (politicianNode != null) {
+            updatePoliticianList.getItems().add(politicianNode.getContents());
+            politicianNode = politicianNode.next;
+        }
+    }
+
     public void loadCandidateChoiceBox() {
         LinkedNode<Candidate> candidateNode = myCandidateList.head;
         while (candidateNode != null) {
             candidateList.getItems().add(candidateNode.getContents());
+            candidateNode = candidateNode.next;
+        }
+    }
+
+    public void loadUpdateCandidateChoiceBox() {
+        LinkedNode<Election> electionNode = myElectionList.head;
+        LinkedNode<Candidate> candidateNode = myCandidateList.head;
+        while (candidateNode != null) {
+            updateCandidateList.getItems().add(electionNode.getContents().getCandidateList().head.getContents());
             candidateNode = candidateNode.next;
         }
     }
@@ -219,6 +252,7 @@ public class Controller implements Initializable {
         System.out.println(myPoliticianList.listElementContents());
         loadPoliticianTable();
         loadPoliticianChoiceBox();
+        loadUpdatePoliticianChoiceBox();
     }
 
     public void addElection(ActionEvent actionEvent) {
@@ -246,7 +280,8 @@ public class Controller implements Initializable {
     }
 
 
-    public void updatePolitician(ActionEvent actionEvent) {
+    public void editPolitician(ActionEvent actionEvent) {
+       // Politician pol1 = updatePoliticianList.getIt
 
     }
 
@@ -317,11 +352,19 @@ public class Controller implements Initializable {
         candidateTab.setDisable(false);
         searchTab.setDisable(false);
         //Reloads tables and choice-boxes
-        loadElectionChoiceBox();
         loadPoliticianChoiceBox();
-        loadCandidateChoiceBox();
+        loadUpdatePoliticianChoiceBox();
         loadPoliticianTable();
+
+        loadElectionChoiceBox();
         loadElectionTable();
+        loadUpdateElectionChoiceBox();
+
+        loadCandidateChoiceBox();
+       // loadCandidateTable(election);
+        loadUpdateCandidateChoiceBox();
+
+
     }
 
     public void quit(){
