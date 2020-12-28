@@ -2,12 +2,13 @@ package System;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
@@ -70,7 +71,7 @@ public class Controller implements Initializable {
     @FXML
     public TableColumn<Politician, String> politicianPartyT;
     @FXML
-    public TableColumn<Politician, Integer> dateOfBirthT;
+    public TableColumn<Politician, String> dateOfBirthT;
     @FXML
     public TableColumn<Politician, String> countyLocationT;
     @FXML
@@ -82,9 +83,9 @@ public class Controller implements Initializable {
     @FXML
     public TableColumn<Election, String> countyT;
     @FXML
-    public TableColumn<Election, Integer> electionYearT;
+    public TableColumn<Election, String> electionYearT;
     @FXML
-    public TableColumn<Election, Integer> numOfSeatsT;
+    public TableColumn<Election, String> numOfSeatsT;
 
     //Text fields Election
     @FXML
@@ -112,7 +113,7 @@ public class Controller implements Initializable {
     @FXML
     public TableColumn<Candidate, String> electionT;
     @FXML
-    public TableColumn<Candidate, Integer> numberOfVotesT;
+    public TableColumn<Candidate, String> numberOfVotesT;
 
     //Candidate text fields
     @FXML
@@ -139,8 +140,8 @@ public class Controller implements Initializable {
     public void loadElectionTable() {
         electionTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
         countyT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
-        electionYearT.setCellValueFactory(new PropertyValueFactory<Election, Integer>("yearOfElection"));
-        numOfSeatsT.setCellValueFactory(new PropertyValueFactory<Election, Integer>("numberOfSeats"));
+        electionYearT.setCellValueFactory(new PropertyValueFactory<Election, String>("yearOfElection"));
+        numOfSeatsT.setCellValueFactory(new PropertyValueFactory<Election, String>("numberOfSeats"));
 
         LinkedNode<Election> electionNode = myElectionList.head;
         while (electionNode != null) {
@@ -154,7 +155,7 @@ public class Controller implements Initializable {
     public void loadPoliticianTable() {
         politicianNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
         politicianPartyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("politicalParty"));
-        dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician, Integer>("dateOfBirth"));
+        dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician, String>("dateOfBirth"));
         countyLocationT.setCellValueFactory(new PropertyValueFactory<Politician, String>("homeCounty"));
         imageUrlT.setCellValueFactory(new PropertyValueFactory<Politician, String>("image"));
 
@@ -169,7 +170,7 @@ public class Controller implements Initializable {
     public void loadCandidateTable(Election election1) {
         candidateT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
         electionT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("electionName"));
-        numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, Integer>("numOfVotes"));
+        numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("numOfVotes"));
 
         LinkedNode<Candidate> candidateNode = election1.getCandidateList().head;
         while (candidateNode != null) {
@@ -182,7 +183,7 @@ public class Controller implements Initializable {
     public void reloadCandidateTable() {
         candidateT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
         electionT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("electionName"));
-        numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, Integer>("numOfVotes"));
+        numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("numOfVotes"));
 
         LinkedNode<Candidate> candidateNode = election.getCandidateList().head;
         while (candidateNode != null) {
@@ -243,11 +244,27 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        politicianTable.setEditable(true);
+        politicianNameT.setCellFactory(TextFieldTableCell.forTableColumn());
+        politicianPartyT.setCellFactory(TextFieldTableCell.forTableColumn());
+        dateOfBirthT.setCellFactory(TextFieldTableCell.forTableColumn());
+        countyLocationT.setCellFactory(TextFieldTableCell.forTableColumn());
+        imageUrlT.setCellFactory(TextFieldTableCell.forTableColumn());
 
+        electionTable.setEditable(true);
+        electionTypeT.setCellFactory(TextFieldTableCell.forTableColumn());
+        countyT.setCellFactory(TextFieldTableCell.forTableColumn());
+        electionYearT.setCellFactory(TextFieldTableCell.forTableColumn());
+        numOfSeatsT.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        candidateTable.setEditable(true);
+        candidateT.setCellFactory(TextFieldTableCell.forTableColumn());
+        electionT.setCellFactory(TextFieldTableCell.forTableColumn());
+        numberOfVotesT.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     public void addPolitician(ActionEvent actionEvent) {
-        Politician p = new Politician(politicianName.getText(), Integer.parseInt(dateOfBirth.getText()), politicianParty.getText(), politicianCounty.getText(), imageUrl.getText());
+        Politician p = new Politician(politicianName.getText(), politicianParty.getText(), dateOfBirth.getText(), politicianCounty.getText(), imageUrl.getText());
         myPoliticianList.addElement(p);
         System.out.println(myPoliticianList.listElementContents());
         loadPoliticianTable();
@@ -255,8 +272,35 @@ public class Controller implements Initializable {
         loadUpdatePoliticianChoiceBox();
     }
 
+    public void editPoliticianName(TableColumn.CellEditEvent editedCell) {
+        Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
+        politician1.setFullName(editedCell.getNewValue().toString());
+    }
+
+    public void editPoliticianParty(TableColumn.CellEditEvent editedCell) {
+        Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
+        politician1.setPoliticalParty(editedCell.getNewValue().toString());
+    }
+
+    public void editPoliticianDOB(TableColumn.CellEditEvent editedCell) {
+        Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
+        politician1.setDateOfBirth(editedCell.getNewValue().toString());
+
+    }
+
+    public void editPoliticianCounty(TableColumn.CellEditEvent editedCell) {
+        Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
+        politician1.setPoliticalParty(editedCell.getNewValue().toString());
+    }
+
+    public void editPoliticianImage(TableColumn.CellEditEvent editedCell) {
+        Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
+        politician1.setImage(editedCell.getNewValue().toString());
+    }
+
+
     public void addElection(ActionEvent actionEvent) {
-        Election e = new Election(electionType.getText(), countyLocation.getText(), Integer.parseInt(yearOfElection.getText()), Integer.parseInt(numberOfSeats.getText()));
+        Election e = new Election(electionType.getText(), countyLocation.getText(), yearOfElection.getText(), numberOfSeats.getText());
         myElectionList.addElement(e);
         System.out.println(myElectionList.listElementContents());
         loadElectionTable();
@@ -265,12 +309,32 @@ public class Controller implements Initializable {
         loadElectionChoiceBox();
     }
 
+    public void editElectionName(TableColumn.CellEditEvent editedCell) {
+        Election election1 = electionTable.getSelectionModel().getSelectedItem();
+        election1.setElectionType(editedCell.getNewValue().toString());
+    }
+
+    public void editElectionCounty(TableColumn.CellEditEvent editedCell) {
+        Election election1 = electionTable.getSelectionModel().getSelectedItem();
+        election1.setCountyLocation(editedCell.getNewValue().toString());
+    }
+
+    public void editElectionYear(TableColumn.CellEditEvent editedCell) {
+        Election election1 = electionTable.getSelectionModel().getSelectedItem();
+        election1.setYearOfElection(editedCell.getNewValue().toString());
+    }
+
+    public void editElectionNoS(TableColumn.CellEditEvent editedCell) {
+        Election election1 = electionTable.getSelectionModel().getSelectedItem();
+        election1.setNumberOfSeats(editedCell.getNewValue().toString());
+    }
+
     public void addCandidate(ActionEvent actionEvent) {
         LinkedNode<Election> electionNode = myElectionList.head;
         Candidate c;
         while(electionNode != null && electionNode.getContents().equals(electionList.getValue())) {
                 Election election1 = electionNode.getContents();
-                    c = new Candidate(politicianList.getValue().toString(), electionList.getValue().toString(), Integer.parseInt(numberOfVotes.getText()));
+                    c = new Candidate(politicianList.getValue().toString(), electionList.getValue().toString(), numberOfVotes.getText());
                     election1.getCandidateList().addElement(c);
                     System.out.println(election1.getCandidateList().listElementContents());
                     loadCandidateTable(election1);
@@ -279,45 +343,46 @@ public class Controller implements Initializable {
         }
     }
 
-
-    public void editPolitician(ActionEvent actionEvent) {
-       // Politician pol1 = updatePoliticianList.getIt
-
+    public void editCandidate(TableColumn.CellEditEvent editedCell) {
+        Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
+        candidate1.setCandidateName(editedCell.getNewValue().toString());
     }
 
-    public void editElection(ActionEvent actionEvent) {
-
+    public void editElection(TableColumn.CellEditEvent editedCell) {
+        Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
+        candidate1.setElectionName(editedCell.getNewValue().toString());
     }
 
-    public void editCandidate(ActionEvent actionEvent) {
-
+    public void editCandidateVotes(TableColumn.CellEditEvent editedCell) {
+        Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
+        candidate1.setNumOfVotes(editedCell.getNewValue().toString());
     }
 
     public void  removePolitician(){
-        ObservableList <Politician> selectedRows, allPoliticians;
-        allPoliticians = politicianTable.getItems();
-
-        selectedRows = politicianTable.getSelectionModel().getSelectedItems();
-
-        allPoliticians.removeAll(selectedRows);
+//        ObservableList <Politician> selectedRows, allPoliticians;
+//        allPoliticians = politicianTable.getItems();
+//
+//        selectedRows = politicianTable.getSelectionModel().getSelectedItems();
+//
+//        allPoliticians.removeAll(selectedRows);
     }
 
     public void  removeElection(){
-        ObservableList <Election> selectedRows, allElections;
-        allElections = electionTable.getItems();
-
-        selectedRows = electionTable.getSelectionModel().getSelectedItems();
-
-        allElections.removeAll(selectedRows);
+//        ObservableList <Election> selectedRows, allElections;
+//        allElections = electionTable.getItems();
+//
+//        selectedRows = electionTable.getSelectionModel().getSelectedItems();
+//
+//        allElections.removeAll(selectedRows);
     }
 
     public void  removeCandidate(){
-        ObservableList <Candidate> selectedRows, allCandidates;
-        allCandidates = candidateTable.getItems();
-
-        selectedRows = candidateTable.getSelectionModel().getSelectedItems();
-
-        allCandidates.removeAll(selectedRows);
+//        ObservableList <Candidate> selectedRows, allCandidates;
+//        allCandidates = candidateTable.getItems();
+//
+//        selectedRows = candidateTable.getSelectionModel().getSelectedItems();
+//
+//        allCandidates.removeAll(selectedRows);
     }
 
 

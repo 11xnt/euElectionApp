@@ -4,11 +4,11 @@ public class Election {
 
     private String electionType;
     private String countyLocation;
-    private int yearOfElection;
-    private int numberOfSeats;
+    private String yearOfElection;
+    private String numberOfSeats;
     private MyList<Candidate> candidateList = new MyList<Candidate>();
 
-    public Election(String electionType, String countyLocation, int yearOfElection, int numberOfSeats) {
+    public Election(String electionType, String countyLocation, String yearOfElection, String numberOfSeats) {
         this.electionType = electionType;
         this.countyLocation = countyLocation;
         this.yearOfElection = yearOfElection;
@@ -31,19 +31,19 @@ public class Election {
         this.countyLocation = countyLocation;
     }
 
-    public int getYearOfElection() {
+    public String getYearOfElection() {
         return yearOfElection;
     }
 
-    public void setYearOfElection(int yearOfElection) {
+    public void setYearOfElection(String yearOfElection) {
         this.yearOfElection = yearOfElection;
     }
 
-    public int getNumberOfSeats() {
+    public String getNumberOfSeats() {
         return numberOfSeats;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
+    public void setNumberOfSeats(String numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }
 

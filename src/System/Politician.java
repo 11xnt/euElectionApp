@@ -3,14 +3,14 @@ package System;
 public class Politician {
 
     private String fullName;
-    private int dateOfBirth;
+    private String dateOfBirth;
     private String politicalParty;
     private String homeCounty;
     private String image;
 
-    public Politician(String fullName, int dateOfBirth, String politicalParty, String homeCounty, String image) {
+    public Politician(String fullName, String politicalParty, String dateOfBirth, String homeCounty, String image) {
         if(Utilities.onlyContainsLetters(fullName)) this.fullName = fullName;
-        this.dateOfBirth = dateOfBirth;
+        if(Utilities.onlyContainsNumbers(dateOfBirth)) this.dateOfBirth = dateOfBirth;
         if(Utilities.onlyContainsLetters(politicalParty)) this.politicalParty = politicalParty;
         if(Utilities.onlyContainsLetters(homeCounty)) this.homeCounty = homeCounty;
         this.image = image;
@@ -24,11 +24,11 @@ public class Politician {
         this.fullName = fullName;
     }
 
-    public int getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(int dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

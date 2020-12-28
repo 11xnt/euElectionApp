@@ -106,18 +106,18 @@
                                  <Tooltip text="Enter politician county" />
                              </tooltip>
                          </TextField>
-                        <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" onAction="#editPolitician" prefHeight="69.0" prefWidth="113.0" text="Edit">
+                        <Button layoutX="923.0" layoutY="260.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="113.0" text="Edit">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
                         <TableView id="dark" fx:id="politicianTable" layoutX="-2.0" layoutY="461.0" prefHeight="325.0" prefWidth="1282.0">
                           <columns>
-                            <TableColumn fx:id="politicianNameT" prefWidth="124.66668128967285" text="Name" />
-                            <TableColumn fx:id="politicianPartyT" prefWidth="258.0000457763672" text="Party" />
-                              <TableColumn fx:id="dateOfBirthT" prefWidth="213.33328247070312" text="DOB" />
-                              <TableColumn fx:id="countyLocationT" prefWidth="238.666748046875" text="County" />
-                              <TableColumn fx:id="imageUrlT" prefWidth="405.0" text="URL" />
+                            <TableColumn fx:id="politicianNameT" onEditCommit="#editPoliticianName" prefWidth="124.66668128967285" text="Name" />
+                            <TableColumn fx:id="politicianPartyT" onEditCommit="#editPoliticianParty" prefWidth="258.0000457763672" text="Party" />
+                              <TableColumn fx:id="dateOfBirthT" onEditCommit="#editPoliticianDOB" prefWidth="213.33328247070312" text="DOB" />
+                              <TableColumn fx:id="countyLocationT" onEditCommit="#editPoliticianCounty" prefWidth="238.666748046875" text="County" />
+                              <TableColumn fx:id="imageUrlT" onEditCommit="#editPoliticianImage" prefWidth="405.0" text="URL" />
                           </columns>
                         </TableView>
                         <Button layoutX="553.0" layoutY="359.0" mnemonicParsing="false" onAction="#removePolitician" prefHeight="86.0" prefWidth="177.0" text="Remove Politician">
@@ -152,10 +152,10 @@
                         <Button layoutX="922.0" layoutY="254.0" mnemonicParsing="false" onAction="#editElection" prefHeight="60.0" prefWidth="95.0" text="Edit election" />
                         <TableView id="dark" fx:id="electionTable" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
                           <columns>
-                            <TableColumn fx:id="electionTypeT" prefWidth="226.66671180725098" text="Type" />
-                            <TableColumn fx:id="countyT" prefWidth="206.6667022705078" text="County" />
-                              <TableColumn fx:id="electionYearT" prefWidth="143.33334350585938" text="Election Year" />
-                              <TableColumn fx:id="numOfSeatsT" prefWidth="120.666748046875" text="Number of Seats" />
+                            <TableColumn fx:id="electionTypeT" onEditCommit="#editElectionName" prefWidth="226.66671180725098" text="Type" />
+                            <TableColumn fx:id="countyT" onEditCommit="#editElectionCounty" prefWidth="206.6667022705078" text="County" />
+                              <TableColumn fx:id="electionYearT" onEditCommit="#editElectionYear" prefWidth="143.33334350585938" text="Election Year" />
+                              <TableColumn fx:id="numOfSeatsT" onEditCommit="#editElectionNoS" prefWidth="120.666748046875" text="Number of Seats" />
                           </columns>
                         </TableView>
                         <TextField fx:id="electionUpdate" layoutX="895.0" layoutY="31.0" promptText="Update election type">
