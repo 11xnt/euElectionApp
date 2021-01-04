@@ -193,6 +193,8 @@ public class Controller implements Initializable {
     }
 
 
+
+
     public void loadElectionChoiceBox() {
         LinkedNode<Election> electionNode = myElectionList.head;
         while (electionNode != null) {
@@ -275,27 +277,32 @@ public class Controller implements Initializable {
     public void editPoliticianName(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setFullName(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void editPoliticianParty(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setPoliticalParty(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void editPoliticianDOB(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setDateOfBirth(editedCell.getNewValue().toString());
+        saveToFile();
 
     }
 
     public void editPoliticianCounty(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setPoliticalParty(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void editPoliticianImage(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setImage(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
 
@@ -312,21 +319,25 @@ public class Controller implements Initializable {
     public void editElectionName(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setElectionType(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void editElectionCounty(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setCountyLocation(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void editElectionYear(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setYearOfElection(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void editElectionNoS(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setNumberOfSeats(editedCell.getNewValue().toString());
+        saveToFile();
     }
 
     public void addCandidate(ActionEvent actionEvent) {
@@ -343,6 +354,7 @@ public class Controller implements Initializable {
         }
     }
 
+
     public void editCandidate(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setCandidateName(editedCell.getNewValue().toString());
@@ -358,40 +370,36 @@ public class Controller implements Initializable {
         candidate1.setNumOfVotes(editedCell.getNewValue().toString());
     }
 
-    public void  removePolitician(){
-//        ObservableList <Politician> selectedRows, allPoliticians;
-//        allPoliticians = politicianTable.getItems();
-//
-//        selectedRows = politicianTable.getSelectionModel().getSelectedItems();
-//
-//        allPoliticians.removeAll(selectedRows);
+    public void  removePolitician(ActionEvent actionEvent){
+    myPoliticianList.deleteElement(politicianTable.getSelectionModel().getSelectedIndex());
+    saveToFile();
     }
 
     public void  removeElection(){
-//        ObservableList <Election> selectedRows, allElections;
-//        allElections = electionTable.getItems();
-//
-//        selectedRows = electionTable.getSelectionModel().getSelectedItems();
-//
-//        allElections.removeAll(selectedRows);
+    myElectionList.deleteElement(electionTable.getSelectionModel().getSelectedIndex());
+    saveToFile();
     }
 
     public void  removeCandidate(){
-//        ObservableList <Candidate> selectedRows, allCandidates;
-//        allCandidates = candidateTable.getItems();
-//
-//        selectedRows = candidateTable.getSelectionModel().getSelectedItems();
-//
-//        allCandidates.removeAll(selectedRows);
+    myCandidateList.deleteElement(candidateTable.getSelectionModel().getSelectedIndex());
+    saveToFile();
+    }
+
+
+    //Can call this method to get auto-save function
+    public void saveToFile()
+    {
+        try {
+            save();
+        } catch (Exception e) {
+            System.err.println("Error writing to file: " + e);
+        }
     }
 
 
 
 
-
-
-
-    public void save(ActionEvent actionEvent) throws Exception {
+    public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream polout = xstream.createObjectOutputStream(new FileWriter("PoliticianData.xml"));
         ObjectOutputStream elecout = xstream.createObjectOutputStream(new FileWriter("ElectionData.xml"));
@@ -399,7 +407,6 @@ public class Controller implements Initializable {
         elecout.writeObject(myElectionList);
         polout.close();
         elecout.close();
-        Alertbox.alert("Political system", "System has been saved", "Click ok to continue");
     }
 
     //loads everything bar the candidate table

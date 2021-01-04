@@ -125,6 +125,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
+                        <TextField fx:id="searchField" layoutX="27.0" layoutY="420.0" prefHeight="26.0" prefWidth="315.0" promptText="Search" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -174,9 +175,14 @@
                            <tooltip>
                               <Tooltip text="Update number of seats won in the election" />
                            </tooltip></TextField>
-                        <Line endX="-100.0" endY="456.9999694824219" layoutX="741.0" layoutY="3.0" startX="-100.0" />
+                        <Line endX="-100.0" endY="327.0" layoutX="741.0" layoutY="3.0" startX="-100.0" />
                         <Label layoutX="714.0" layoutY="23.0" text="Selection Election" />
                         <ChoiceBox fx:id="updateElectionList" layoutX="689.0" layoutY="51.0" prefWidth="150.0" />
+                        <Button layoutX="552.0" layoutY="347.0" mnemonicParsing="false" onAction="#removeElection" prefHeight="86.0" prefWidth="177.0" text="Remove Election">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -203,11 +209,16 @@
                             <TableColumn fx:id="numberOfVotesT" prefWidth="298.66672706604004" text="Number of Votes" />
                           </columns>
                         </TableView>
-                        <Line endX="-2.0" endY="230.0" layoutX="643.0" layoutY="163.0" startX="-2.0" startY="-163.0" />
+                        <Line endX="-2.0" endY="127.0" layoutX="643.0" layoutY="149.0" startX="-2.0" startY="-163.0" />
                         <ChoiceBox fx:id="electionList" accessibleHelp="asd" accessibleText="xzc" layoutX="152.0" layoutY="36.0" prefWidth="150.0" />
                         <ChoiceBox fx:id="politicianList" layoutX="401.0" layoutY="36.0" prefWidth="150.0" />
                         <Label layoutX="186.0" layoutY="14.0" text="Select Election" />
                         <Label layoutX="432.0" layoutY="14.0" text="Select Politician" />
+                        <Button layoutX="553.0" layoutY="294.0" mnemonicParsing="false" onAction="#removeCandidate" prefHeight="86.0" prefWidth="177.0" text="Remove Candidate">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                      </children></AnchorPane>
               </content>
             </Tab>

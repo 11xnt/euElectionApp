@@ -1,32 +1,5 @@
 <object-stream>
   <System.MyList>
-    <head>
-      <contents class="System.Election">
-        <electionType>asd</electionType>
-        <countyLocation>asd</countyLocation>
-        <yearOfElection>22</yearOfElection>
-        <numberOfSeats>22</numberOfSeats>
-        <candidateList>
-          <head>
-            <contents class="System.Candidate">
-              <numOfVotes>300</numOfVotes>
-              <electionName>Election Type: asd
-County Location: asd
-Year Of Election: 22
-Number Of Seats: 22
-</electionName>
-              <candidateName>Full Name: asd
-Date Of Birth: 22
-Political Party: asd
-Home County: asd
-URL Image: asd
-</candidateName>
-            </contents>
-          </head>
-          <numElements>1</numElements>
-        </candidateList>
-      </contents>
-    </head>
-    <numElements>1</numElements>
+    <numElements>0</numElements>
   </System.MyList>
 </object-stream>
