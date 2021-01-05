@@ -138,6 +138,7 @@ public class Controller implements Initializable {
 
 
     public void loadElectionTable() {
+        electionTable.getItems().clear();
         electionTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
         countyT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
         electionYearT.setCellValueFactory(new PropertyValueFactory<Election, String>("yearOfElection"));
@@ -153,6 +154,7 @@ public class Controller implements Initializable {
     }
 
     public void loadPoliticianTable() {
+        politicianTable.getItems().clear();
         politicianNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
         politicianPartyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("politicalParty"));
         dateOfBirthT.setCellValueFactory(new PropertyValueFactory<Politician, String>("dateOfBirth"));
@@ -168,6 +170,7 @@ public class Controller implements Initializable {
     }
 
     public void loadCandidateTable(Election election1) {
+        candidateTable.getItems().clear();
         candidateT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
         electionT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("electionName"));
         numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("numOfVotes"));
@@ -272,6 +275,7 @@ public class Controller implements Initializable {
         loadPoliticianTable();
         loadPoliticianChoiceBox();
         loadUpdatePoliticianChoiceBox();
+        saveToFile();
     }
 
     public void editPoliticianName(TableColumn.CellEditEvent editedCell) {
@@ -295,7 +299,7 @@ public class Controller implements Initializable {
 
     public void editPoliticianCounty(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
-        politician1.setPoliticalParty(editedCell.getNewValue().toString());
+        politician1.setHomeCounty(editedCell.getNewValue().toString());
         saveToFile();
     }
 
@@ -314,6 +318,7 @@ public class Controller implements Initializable {
         Alertbox.alert("Election", "New election added", "Thank you");
         electionTab.setDisable(false);
         loadElectionChoiceBox();
+        saveToFile();
     }
 
     public void editElectionName(TableColumn.CellEditEvent editedCell) {
@@ -352,6 +357,7 @@ public class Controller implements Initializable {
                     loadCandidateChoiceBox();
                     electionNode = electionNode.next;
         }
+        saveToFile();
     }
 
 
@@ -373,16 +379,20 @@ public class Controller implements Initializable {
     public void  removePolitician(ActionEvent actionEvent){
     myPoliticianList.deleteElement(politicianTable.getSelectionModel().getSelectedIndex());
     saveToFile();
+    loadPoliticianTable();
     }
 
     public void  removeElection(){
     myElectionList.deleteElement(electionTable.getSelectionModel().getSelectedIndex());
     saveToFile();
+    loadElectionTable();
+
     }
 
     public void  removeCandidate(){
     myCandidateList.deleteElement(candidateTable.getSelectionModel().getSelectedIndex());
     saveToFile();
+
     }
 
 
