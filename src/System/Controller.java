@@ -199,7 +199,6 @@ public class Controller implements Initializable {
         }
     }
 
-
     public void loadElectionChoiceBox() {
         LinkedNode<Election> electionNode = myElectionList.head;
         while (electionNode != null) {
