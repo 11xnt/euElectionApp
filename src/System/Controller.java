@@ -19,13 +19,6 @@ public class Controller implements Initializable {
 
 
 
-    MyList<Politician> myPoliticianList = new MyList<Politician>();
-    MyList<Election> myElectionList = new MyList<Election>();
-    MyList<Candidate> myCandidateList = new MyList<Candidate>();
-    Election election;
-    Politician politician;
-    Candidate candidate;
-
     //Initialized table view
     @FXML
     public TableView<Election> electionTable;
@@ -33,8 +26,6 @@ public class Controller implements Initializable {
     public TableView<Politician> politicianTable;
     @FXML
     public TableView<Candidate> candidateTable;
-
-
     //Al tabs used
     @FXML
     public Tab politicianTab;
@@ -44,7 +35,6 @@ public class Controller implements Initializable {
     public Tab candidateTab;
     @FXML
     public Tab searchTab;
-
     //Text fields Politician
     @FXML
     public TextField politicianParty;
@@ -64,7 +54,6 @@ public class Controller implements Initializable {
     public TextField politicianCounty;
     @FXML
     public TextField politicianCountyUpdate;
-
     //Politician Tables
     @FXML
     public TableColumn<Politician, String> politicianNameT;
@@ -76,7 +65,6 @@ public class Controller implements Initializable {
     public TableColumn<Politician, String> countyLocationT;
     @FXML
     public TableColumn<Politician, String> imageUrlT;
-
     //Elections Tables
     @FXML
     public TableColumn<Election, String> electionTypeT;
@@ -86,7 +74,6 @@ public class Controller implements Initializable {
     public TableColumn<Election, String> electionYearT;
     @FXML
     public TableColumn<Election, String> numOfSeatsT;
-
     //Text fields Election
     @FXML
     public TextField electionUpdate;
@@ -106,7 +93,6 @@ public class Controller implements Initializable {
     public TextField numberOfSeats;
     @FXML
     public TextField dateOfBirth;
-
     //Candidate Tables
     @FXML
     public TableColumn<Candidate, String> candidateT;
@@ -114,7 +100,6 @@ public class Controller implements Initializable {
     public TableColumn<Candidate, String> electionT;
     @FXML
     public TableColumn<Candidate, String> numberOfVotesT;
-
     //Candidate text fields
     @FXML
     public TextField updateCandidateVotes;
@@ -122,7 +107,6 @@ public class Controller implements Initializable {
     public TextField updateCandidateParty;
     @FXML
     public TextField numberOfVotes;
-
     @FXML
     public ChoiceBox electionList;
     @FXML
@@ -135,12 +119,17 @@ public class Controller implements Initializable {
     public ChoiceBox candidateList;
     @FXML
     public ChoiceBox updateCandidateList;
-
     // Image window.
     @FXML
     public ImageView imgView;
+    MyList<Politician> myPoliticianList = new MyList<Politician>();
+    MyList<Election> myElectionList = new MyList<Election>();
+    MyList<Candidate> myCandidateList = new MyList<Candidate>();
+    Election election;
+    Politician politician;
+    Candidate candidate;
 
-
+    // Loads the election table and allows for multiple selection.
     public void loadElectionTable() {
         electionTable.getItems().clear();
         electionTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
@@ -156,7 +145,7 @@ public class Controller implements Initializable {
 
         electionTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
-
+    // Loads the politician table and allows for multiple selection.
     public void loadPoliticianTable() {
         politicianTable.getItems().clear();
         politicianNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
@@ -198,7 +187,7 @@ public class Controller implements Initializable {
             candidateNode = candidateNode.next;
         }
     }
-
+    //Loads Election choice box in Candidate tab
     public void loadElectionChoiceBox() {
         LinkedNode<Election> electionNode = myElectionList.head;
         while (electionNode != null) {
@@ -214,7 +203,7 @@ public class Controller implements Initializable {
             electionNode = electionNode.next;
         }
     }
-
+    //Loads Politician choice box in Candidate tab
     public void loadPoliticianChoiceBox() {
         LinkedNode<Politician> politicianNode = myPoliticianList.head;
         while (politicianNode != null) {
@@ -247,7 +236,7 @@ public class Controller implements Initializable {
             candidateNode = candidateNode.next;
         }
     }
-
+    //Sets table fields to be editable.
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         politicianTable.setEditable(true);
@@ -268,42 +257,41 @@ public class Controller implements Initializable {
         electionT.setCellFactory(TextFieldTableCell.forTableColumn());
         numberOfVotesT.setCellFactory(TextFieldTableCell.forTableColumn());
     }
-
+    //Adds a new politician to the list
     public void addPolitician(ActionEvent actionEvent) {
         Politician p = new Politician(politicianName.getText(), politicianParty.getText(), dateOfBirth.getText(), politicianCounty.getText(), imageUrl.getText());
         myPoliticianList.addElement(p);
         System.out.println(myPoliticianList.listElementContents());
         loadPoliticianTable();
         loadPoliticianChoiceBox();
-
         saveToFile();
     }
-
+    // Edits the politician name table field
     public void editPoliticianName(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setFullName(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Edits the politician political party table field
     public void editPoliticianParty(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setPoliticalParty(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Edits the politician DOB table field
     public void editPoliticianDOB(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setDateOfBirth(editedCell.getNewValue().toString());
         saveToFile();
 
     }
-
+    // Edits the politician county table field
     public void editPoliticianCounty(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setHomeCounty(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Edits the politician URL table field
     public void editPoliticianImage(TableColumn.CellEditEvent editedCell) {
         Politician politician1 = politicianTable.getSelectionModel().getSelectedItem();
         politician1.setImage(editedCell.getNewValue().toString());
@@ -321,31 +309,31 @@ public class Controller implements Initializable {
         loadElectionChoiceBox();
         saveToFile();
     }
-
+    // Edits the election name table field
     public void editElectionName(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setElectionType(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Edits the election county table field
     public void editElectionCounty(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setCountyLocation(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Edits the election year table field
     public void editElectionYear(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setYearOfElection(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Edits the election seat number table field
     public void editElectionNoS(TableColumn.CellEditEvent editedCell) {
         Election election1 = electionTable.getSelectionModel().getSelectedItem();
         election1.setNumberOfSeats(editedCell.getNewValue().toString());
         saveToFile();
     }
-
+    // Adds new candidate
     public void addCandidate(ActionEvent actionEvent) {
         LinkedNode<Election> electionNode = myElectionList.head;
         Candidate c;
@@ -445,7 +433,7 @@ public class Controller implements Initializable {
         loadElectionChoiceBox();
         loadElectionTable();
         loadCandidateChoiceBox();
-       // loadCandidateTable(election);
+        //loadCandidateTable(election);
         loadUpdateCandidateChoiceBox();
 
 

@@ -1,9 +1,8 @@
 package System;
 
-/**
- * Generic linked list class
- * @param <L>
- */
+//Generic linked list class
+
+
 
 public class MyList<L> {
 
