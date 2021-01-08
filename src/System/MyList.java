@@ -10,12 +10,8 @@ public class MyList<L> {
     public LinkedNode<L> head = null;
     int numElements = 0;
 
-    /**
-     * Method to add an element to the node
-     *
-     * @param e
-     */
 
+    //Adds an element to the head of the list.
     public void addElement(L e) {
         LinkedNode<L> lnode = new LinkedNode<L>();
         lnode.setContents(e);
@@ -24,11 +20,18 @@ public class MyList<L> {
         numElements++;
     }
 
-    /**
-     * Method to delete a node.
-     *
-     * @param d
-     */
+    //Method to swap the elements in the list.
+
+   /* public void swapNodes(int x, int y)
+    {
+        L swap = get(x);
+        this.set(x,this.get(y));
+        this.set(y,swap);
+    }*/
+
+
+
+    //Method to delete an element from the list.
     public void deleteElement(int d) {
 
         LinkedNode temp = head;
@@ -45,11 +48,8 @@ public class MyList<L> {
         numElements--;
     }
 
-    /**
-     * Method to lis all of the nodes.
-     *
-     * @return allElements
-     */
+    //Method to list the contents.
+
     public String listElementContents() {
         if (head == null) {
             return "";

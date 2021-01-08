@@ -8,15 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
 
 
     MyList<Politician> myPoliticianList = new MyList<Politician>();
@@ -136,6 +136,10 @@ public class Controller implements Initializable {
     @FXML
     public ChoiceBox updateCandidateList;
 
+    // Image window.
+    @FXML
+    public ImageView imgView;
+
 
     public void loadElectionTable() {
         electionTable.getItems().clear();
@@ -194,8 +198,6 @@ public class Controller implements Initializable {
             candidateNode = candidateNode.next;
         }
     }
-
-
 
 
     public void loadElectionChoiceBox() {
@@ -274,7 +276,7 @@ public class Controller implements Initializable {
         System.out.println(myPoliticianList.listElementContents());
         loadPoliticianTable();
         loadPoliticianChoiceBox();
-        loadUpdatePoliticianChoiceBox();
+
         saveToFile();
     }
 
@@ -375,24 +377,31 @@ public class Controller implements Initializable {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setNumOfVotes(editedCell.getNewValue().toString());
     }
-
+    //Removes the politician from the table and list
     public void  removePolitician(ActionEvent actionEvent){
     myPoliticianList.deleteElement(politicianTable.getSelectionModel().getSelectedIndex());
     saveToFile();
     loadPoliticianTable();
     }
-
+    //Removes the election from the table and list
     public void  removeElection(){
     myElectionList.deleteElement(electionTable.getSelectionModel().getSelectedIndex());
     saveToFile();
     loadElectionTable();
 
     }
-
+    //Removes the candidate from the table and list
     public void  removeCandidate(){
     myCandidateList.deleteElement(candidateTable.getSelectionModel().getSelectedIndex());
     saveToFile();
+    reloadCandidateTable();
+    }
 
+    //Loads the image from local folder
+    public void showImg(){
+        File file = new File(politicianTable.getSelectionModel().getSelectedItem().getImage());
+        Image image = new Image(file.toURI().toString());
+        imgView.setImage(image);
     }
 
 
@@ -406,9 +415,7 @@ public class Controller implements Initializable {
         }
     }
 
-
-
-
+    //Saves the system
     public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream polout = xstream.createObjectOutputStream(new FileWriter("PoliticianData.xml"));
@@ -435,13 +442,9 @@ public class Controller implements Initializable {
         searchTab.setDisable(false);
         //Reloads tables and choice-boxes
         loadPoliticianChoiceBox();
-        loadUpdatePoliticianChoiceBox();
         loadPoliticianTable();
-
         loadElectionChoiceBox();
         loadElectionTable();
-        loadUpdateElectionChoiceBox();
-
         loadCandidateChoiceBox();
        // loadCandidateTable(election);
         loadUpdateCandidateChoiceBox();

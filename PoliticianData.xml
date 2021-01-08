@@ -1,14 +1,23 @@
 <object-stream>
   <System.MyList>
     <head>
+      <next>
+        <contents class="System.Politician">
+          <fullName>shgsh</fullName>
+          <dateOfBirth>445</dateOfBirth>
+          <politicalParty>sdthhstfrjjs</politicalParty>
+          <homeCounty>xdfhsdfh</homeCounty>
+          <image>Photos/POLITICIAN.jpg</image>
+        </contents>
+      </next>
       <contents class="System.Politician">
-        <fullName>adadwd</fullName>
+        <fullName>wefwefrwe</fullName>
         <dateOfBirth>3434</dateOfBirth>
-        <politicalParty>fgfggg</politicalParty>
-        <homeCounty>hhdfhhhfddghd</homeCounty>
-        <image>sfsfdsf</image>
+        <politicalParty>sefsefes</politicalParty>
+        <homeCounty>sefgsegf</homeCounty>
+        <image>Photos/trump.jpg</image>
       </contents>
     </head>
-    <numElements>1</numElements>
+    <numElements>2</numElements>
   </System.MyList>
 </object-stream>
