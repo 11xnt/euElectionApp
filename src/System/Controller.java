@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 
 import java.io.*;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -122,6 +124,7 @@ public class Controller implements Initializable {
     // Image window.
     @FXML
     public ImageView imgView;
+    
     MyList<Politician> myPoliticianList = new MyList<Politician>();
     MyList<Election> myElectionList = new MyList<Election>();
     MyList<Candidate> myCandidateList = new MyList<Candidate>();
@@ -226,6 +229,7 @@ public class Controller implements Initializable {
             candidateList.getItems().add(candidateNode.getContents());
             candidateNode = candidateNode.next;
         }
+
     }
 
     public void loadUpdateCandidateChoiceBox() {
@@ -298,7 +302,7 @@ public class Controller implements Initializable {
         saveToFile();
     }
 
-
+    //Adds a new Election.
     public void addElection(ActionEvent actionEvent) {
         Election e = new Election(electionType.getText(), countyLocation.getText(), yearOfElection.getText(), numberOfSeats.getText());
         myElectionList.addElement(e);
@@ -349,17 +353,17 @@ public class Controller implements Initializable {
         saveToFile();
     }
 
-
+    // Edits the candidate name table field
     public void editCandidate(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setCandidateName(editedCell.getNewValue().toString());
     }
-
+    // Edits the election name table field
     public void editElection(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setElectionName(editedCell.getNewValue().toString());
     }
-
+    // Edits the candidate number of votes table field
     public void editCandidateVotes(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setNumOfVotes(editedCell.getNewValue().toString());
@@ -390,6 +394,7 @@ public class Controller implements Initializable {
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
     }
+
 
 
     //Can call this method to get auto-save function
