@@ -2,7 +2,8 @@ package System;
 
 public class HashTable <E> {
 
-    MyList<E>[] hashTable;
+    private MyList<E>[] hashTable; //aray o
+    int size;
 
     //HashTable Constructor
 
@@ -15,13 +16,31 @@ public class HashTable <E> {
     // needs more research to figure out how to work with it.
     public int hashFunctionName(String fullName){
         int num=0;
+        int hashIndex;
         for(int i=0;i<fullName.length();i++){
             num+=fullName.charAt(i);}
         System.out.println("HASH: " + num%hashTable.length);
-        return num%hashTable.length;
+        hashIndex = num%hashTable.length;
+        insert(hashIndex);
+        return hashIndex;
+    }
+
+    public void insert(int hashIndex) {
+        //find hashCode -> place in array
+        //place in array -> points to that object
+
+
+
     }
 
 
 
 
+    public MyList<E>[] getHashTable() {
+        return hashTable;
+    }
+
+    public void setHashTable(MyList<E>[] hashTable) {
+        this.hashTable = hashTable;
+    }
 }

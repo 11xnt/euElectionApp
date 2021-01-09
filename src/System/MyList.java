@@ -32,7 +32,6 @@ public class MyList<L> {
 
     //Method to delete an element from the list.
     public void deleteElement(int d) {
-
         LinkedNode temp = head;
         if (d == 0) {
             head = temp.next;
@@ -41,6 +40,19 @@ public class MyList<L> {
             while (i > d) {
                 temp = temp.next;
                 i++;
+            }
+            temp.next = temp.next.next;
+        }
+        numElements--;
+    }
+
+    public void deleteCandidate(String matchedCandidate) {
+        LinkedNode temp = head;
+        if (matchedCandidate == null) {
+            head = temp.next;
+        } else {
+            while (matchedCandidate.contains(temp.getContents().toString())) {
+                temp = temp.next;
             }
             temp.next = temp.next.next;
         }

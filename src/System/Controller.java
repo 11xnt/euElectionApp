@@ -13,13 +13,9 @@ import javafx.scene.image.ImageView;
 
 import java.io.*;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.ResourceBundle;
-
-public class Controller implements Initializable {
 
 
+public class Controller {
 
     //Initialized table view
     @FXML
@@ -124,7 +120,6 @@ public class Controller implements Initializable {
     // Image window.
     @FXML
     public ImageView imgView;
-    
     MyList<Politician> myPoliticianList = new MyList<Politician>();
     MyList<Election> myElectionList = new MyList<Election>();
     MyList<Candidate> myCandidateList = new MyList<Candidate>();
@@ -145,7 +140,6 @@ public class Controller implements Initializable {
             electionTable.getItems().add(electionNode.getContents());
             electionNode = electionNode.next;
         }
-
         electionTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
     // Loads the politician table and allows for multiple selection.
@@ -173,23 +167,28 @@ public class Controller implements Initializable {
 
         LinkedNode<Candidate> candidateNode = election1.getCandidateList().head;
         while (candidateNode != null) {
-            candidateTable.getItems().add(election1.getCandidateList().head.getContents());
+            candidateTable.getItems().add(candidateNode.getContents());
             candidateNode = candidateNode.next;
         }
         candidateTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
-    public void reloadCandidateTable() {
+    public void loadAllCandidateTables() {
+        candidateTable.getItems().clear();
+        LinkedNode<Election> electionNode = myElectionList.head;
+        LinkedNode<Candidate> candidateNode = electionNode.getContents().getCandidateList().head;
         candidateT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("candidateName"));
         electionT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("electionName"));
         numberOfVotesT.setCellValueFactory(new PropertyValueFactory<Candidate, String>("numOfVotes"));
-
-        LinkedNode<Candidate> candidateNode = election.getCandidateList().head;
-        while (candidateNode != null) {
-            candidateTable.getItems().add(candidateNode.getContents());
-            candidateNode = candidateNode.next;
+        while(electionNode != null) {
+                while (candidateNode != null) {
+                    candidateTable.getItems().add(candidateNode.getContents());
+                    candidateNode = candidateNode.next;
+                }
+            electionNode = electionNode.next;
         }
     }
+
     //Loads Election choice box in Candidate tab
     public void loadElectionChoiceBox() {
         LinkedNode<Election> electionNode = myElectionList.head;
@@ -231,17 +230,8 @@ public class Controller implements Initializable {
         }
     }
 
-    public void loadUpdateCandidateChoiceBox() {
-        LinkedNode<Election> electionNode = myElectionList.head;
-        LinkedNode<Candidate> candidateNode = myCandidateList.head;
-        while (candidateNode != null) {
-            updateCandidateList.getItems().add(electionNode.getContents().getCandidateList().head.getContents());
-            candidateNode = candidateNode.next;
-        }
-    }
     //Sets table fields to be editable.
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url) {
         politicianTable.setEditable(true);
         politicianNameT.setCellFactory(TextFieldTableCell.forTableColumn());
         politicianPartyT.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -301,7 +291,7 @@ public class Controller implements Initializable {
         saveToFile();
     }
 
-    //Adds a new Election.
+
     public void addElection(ActionEvent actionEvent) {
         Election e = new Election(electionType.getText(), countyLocation.getText(), yearOfElection.getText(), numberOfSeats.getText());
         myElectionList.addElement(e);
@@ -339,52 +329,55 @@ public class Controller implements Initializable {
     // Adds new candidate
     public void addCandidate(ActionEvent actionEvent) {
         LinkedNode<Election> electionNode = myElectionList.head;
+        LinkedNode<Candidate> candidateNode = electionNode.getContents().getCandidateList().head;
         Candidate c;
-        while(electionNode != null && electionNode.getContents().equals(electionList.getValue())) {
+        while (electionNode != null) {
+            if (electionNode.getContents().toString().equals(electionList.getValue().toString())) {
                 Election election1 = electionNode.getContents();
-                    c = new Candidate(politicianList.getValue().toString(), electionList.getValue().toString(), numberOfVotes.getText());
-                    election1.getCandidateList().addElement(c);
-                    System.out.println(election1.getCandidateList().listElementContents());
-                    loadCandidateTable(election1);
-                    loadCandidateChoiceBox();
-                    electionNode = electionNode.next;
+                c = new Candidate(politicianList.getValue().toString(), electionList.getValue().toString(), numberOfVotes.getText());
+                election1.getCandidateList().addElement(c);
+                while (candidateNode != null) {
+                    System.out.println(candidateNode.getContents());
+                    candidateNode = candidateNode.next;
+                }
+                loadCandidateTable(election1);
+                electionNode = electionNode.next;
+            }
+            saveToFile();
         }
-        saveToFile();
     }
 
-    // Edits the candidate name table field
     public void editCandidate(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setCandidateName(editedCell.getNewValue().toString());
     }
-    // Edits the election name table field
+
     public void editElection(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setElectionName(editedCell.getNewValue().toString());
     }
-    // Edits the candidate number of votes table field
+
     public void editCandidateVotes(TableColumn.CellEditEvent editedCell) {
         Candidate candidate1 = candidateTable.getSelectionModel().getSelectedItem();
         candidate1.setNumOfVotes(editedCell.getNewValue().toString());
     }
     //Removes the politician from the table and list
-    public void  removePolitician(ActionEvent actionEvent){
-    myPoliticianList.deleteElement(politicianTable.getSelectionModel().getSelectedIndex());
-    saveToFile();
-    loadPoliticianTable();
+    public void removePolitician(ActionEvent actionEvent){
+        myPoliticianList.deleteElement(politicianTable.getSelectionModel().getSelectedIndex());
+        saveToFile();
+        loadPoliticianTable();
     }
     //Removes the election from the table and list
-    public void  removeElection(){
-    myElectionList.deleteElement(electionTable.getSelectionModel().getSelectedIndex());
-    saveToFile();
-    loadElectionTable();
-
+    public void removeElection(ActionEvent actionEvent){
+        myElectionList.deleteElement(electionTable.getSelectionModel().getSelectedIndex());
+        saveToFile();
+        loadElectionTable();
     }
     //Removes the candidate from the table and list
-    public void  removeCandidate(){
-    myCandidateList.deleteElement(candidateTable.getSelectionModel().getSelectedIndex());
-    saveToFile();
-    reloadCandidateTable();
+    public void removeCandidate(ActionEvent actionEvent) {
+        myElectionList.head.getContents().getCandidateList().deleteElement(candidateTable.getSelectionModel().getSelectedIndex());
+        saveToFile();
+        loadAllCandidateTables();
     }
 
     //Loads the image from local folder
@@ -393,8 +386,6 @@ public class Controller implements Initializable {
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
     }
-
-
 
     //Can call this method to get auto-save function
     public void saveToFile()
@@ -437,10 +428,7 @@ public class Controller implements Initializable {
         loadElectionChoiceBox();
         loadElectionTable();
         loadCandidateChoiceBox();
-        //loadCandidateTable(election);
-        loadUpdateCandidateChoiceBox();
-
-
+        loadAllCandidateTables();
     }
 
     public void quit(){

@@ -2,11 +2,11 @@
   <System.MyList>
     <head>
       <contents class="System.Politician">
-        <fullName>awdawd</fullName>
-        <dateOfBirth>3323</dateOfBirth>
-        <politicalParty>awdwada</politicalParty>
-        <homeCounty>aadawd</homeCounty>
-        <image>Photos/trump.jpg</image>
+        <fullName>asd</fullName>
+        <dateOfBirth>22</dateOfBirth>
+        <politicalParty>asd</politicalParty>
+        <homeCounty>asd</homeCounty>
+        <image>asd</image>
       </contents>
     </head>
     <numElements>1</numElements>
