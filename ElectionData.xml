@@ -1,0 +1,16 @@
+<object-stream>
+  <System.MyList>
+    <head>
+      <contents class="System.Election">
+        <electionType>asd</electionType>
+        <countyLocation>asd</countyLocation>
+        <yearOfElection>22</yearOfElection>
+        <numberOfSeats>22</numberOfSeats>
+        <candidateList>
+          <numElements>0</numElements>
+        </candidateList>
+      </contents>
+    </head>
+    <numElements>1</numElements>
+  </System.MyList>
+</object-stream>
