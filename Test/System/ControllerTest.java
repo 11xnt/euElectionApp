@@ -8,10 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class ControllerTest {
 
     private Politician politician;
-
+    private Election election;
     @BeforeEach
     void setUp() {
-        politician = new Politician("Peter", "Finna Fall", "333", "Waterford", "something");
+        politician  = new Politician("Peter", "Finna Fall", "333", "Waterford", "something");
+        election = new Election("Local", "Waterford", "2003", "32");
     }
 
     @Test
@@ -21,6 +22,7 @@ class ControllerTest {
 
     @Test
     void addElection() {
+
     }
 
     @Test
