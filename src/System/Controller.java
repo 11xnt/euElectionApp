@@ -24,6 +24,10 @@ public class Controller {
     public TableView<Politician> politicianTable;
     @FXML
     public TableView<Candidate> candidateTable;
+    @FXML
+    public TableView<Candidate> searchPolT;
+    @FXML
+    public TableView<Candidate> searchElecT;
     //Al tabs used
     @FXML
     public Tab politicianTab;
@@ -117,9 +121,48 @@ public class Controller {
     public ChoiceBox candidateList;
     @FXML
     public ChoiceBox updateCandidateList;
-    // Image window.
+    //Image window.
     @FXML
     public ImageView imgView;
+    //Search Text Fields
+    @FXML
+    public TextField searchElecTab;
+    @FXML
+    public TextField searchPolTab;
+    //Elections Search Tables
+    @FXML
+    public TableColumn<Election, String> sTypeT;
+    @FXML
+    public TableColumn<Election, String> sLocationT;
+    @FXML
+    public TableColumn<Election, String> sYearT;
+    @FXML
+    public TableColumn<Election, String> sNOST;
+    //Politician Search Tables
+    @FXML
+    public TableColumn<Politician, String> sNameT;
+    @FXML
+    public TableColumn<Politician, String> sPartyT;
+    @FXML
+    public TableColumn<Politician, String> sDOBT;
+    @FXML
+    public TableColumn<Politician, String> sCountyT;
+    @FXML
+    public TableColumn<Politician, String> sURLT;
+    //Radio Buttons
+    @FXML
+    public RadioButton searchByName;
+    @FXML
+    public RadioButton searchByParty;
+    @FXML
+    public RadioButton searchByHCounty;
+    @FXML
+    public RadioButton searchByType;
+    @FXML
+    public RadioButton searchByYear;
+    @FXML
+    public RadioButton searchByCounty;
+
     MyList<Politician> myPoliticianList = new MyList<Politician>();
     MyList<Election> myElectionList = new MyList<Election>();
     MyList<Candidate> myCandidateList = new MyList<Candidate>();
@@ -385,6 +428,36 @@ public class Controller {
         File file = new File(politicianTable.getSelectionModel().getSelectedItem().getImage());
         Image image = new Image(file.toURI().toString());
         imgView.setImage(image);
+    }
+
+    public void searchForPolitician(ActionEvent actionEvent) {
+    }
+
+    public void loadSearchedPoliticianTable() {
+        searchPolT.getItems().clear();
+        sNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
+        sPartyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("politicalParty"));
+        sDOBT.setCellValueFactory(new PropertyValueFactory<Politician, String>("dateOfBirth"));
+        sCountyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("homeCounty"));
+        sURLT.setCellValueFactory(new PropertyValueFactory<Politician, String>("image"));
+
+        LinkedNode<Politician> politicianNode = myPoliticianList.head;
+        while (politicianNode != null) {
+            politicianTable.getItems().add(politicianNode.getContents());
+            politicianNode = politicianNode.next;
+        }
+        politicianTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+    }
+
+    public void searchForElection(ActionEvent actionEvent) {
+    }
+
+    public void loadSearchedElectionTable() {
+        searchElecT.getItems().clear();
+        sTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
+        sLocationT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
+        sYearT.setCellValueFactory(new PropertyValueFactory<Election, String>("yearOfElection"));
+        sNOST.setCellValueFactory(new PropertyValueFactory<Election, String>("numberOfSeats"));
     }
 
     //Can call this method to get auto-save function

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ContextMenu?>
@@ -7,17 +8,20 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane id="windows7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="841.0" prefWidth="1282.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="System.Controller">
    <children>
@@ -163,20 +167,62 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab id="but" fx:id="searchTab" text="Search">
+            <Tab id="but" fx:id="searchTabPol" text="Search">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="123.0" layoutY="66.0" />
-                        <TextField layoutX="123.0" layoutY="110.0" />
-                        <TextField layoutX="1032.0" layoutY="91.0" />
-                        <TextField layoutX="1032.0" layoutY="135.0" />
-                        <ChoiceBox layoutX="796.0" layoutY="98.0" prefWidth="150.0" />
-                        <TextField layoutX="796.0" layoutY="215.0" />
+                        <Line endX="-100.0" endY="291.0" layoutX="741.0" layoutY="82.0" startX="-100.0" startY="-84.0" />
+                        <Text layoutX="262.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Politician" wrappingWidth="257.6044921875">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="903.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Election">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="232.0" layoutY="286.0" mnemonicParsing="false" onAction="#searchForPolitician" prefHeight="63.0" prefWidth="170.0" text="Search" />
+                        <Button layoutX="860.0" layoutY="286.0" mnemonicParsing="false" onAction="#searchForElection" prefHeight="63.0" prefWidth="170.0" text="Search" />
+                        <TextField fx:id="searchPolTab" layoutX="243.0" layoutY="102.0" />
+                        <TextField fx:id="searchElecTab" layoutX="871.0" layoutY="102.0" />
+                        <TableView id="dark" fx:id="searchElecT" layoutX="659.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
+                           <columns>
+                              <TableColumn fx:id="sTypeT" prefWidth="151.0" text="Type" />
+                              <TableColumn fx:id="sLocationT" prefWidth="151.0" text="County" />
+                              <TableColumn fx:id="sYearT" prefWidth="111.0" text="Election Year" />
+                              <TableColumn fx:id="sNOST" prefWidth="119.0" text="Number of Seats" />
+                           </columns>
+                        </TableView>
+                        <TableView id="dark" fx:id="searchPolT" layoutX="52.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
+                           <columns>
+                              <TableColumn fx:id="snameT" prefWidth="119.0" text="Name" />
+                              <TableColumn fx:id="sPartyT" prefWidth="145.0" text="Party" />
+                              <TableColumn fx:id="sDOBT" prefWidth="60.0" text="DOB" />
+                              <TableColumn fx:id="sCountyT" prefWidth="115.0" text="County" />
+                              <TableColumn fx:id="sURLT" prefWidth="105.0" text="URL" />
+                           </columns>
+                        </TableView>
+                        <RadioButton fx:id="searchByParty" layoutX="285.0" layoutY="196.0" mnemonicParsing="false" text="Party">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="polGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="searchByName" layoutX="283.0" layoutY="161.0" mnemonicParsing="false" text="Name" toggleGroup="$polGroup" />
+                        <RadioButton fx:id="searchByHCounty" layoutX="285.0" layoutY="231.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="66.0" text="County" toggleGroup="$polGroup" />
+                        <RadioButton fx:id="searchByType" layoutX="912.0" layoutY="161.0" mnemonicParsing="false" text="Type">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="elecGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="searchByYear" layoutX="912.0" layoutY="196.0" mnemonicParsing="false" text="Year" toggleGroup="$elecGroup" />
+                        <RadioButton fx:id="searchByCounty" layoutX="912.0" layoutY="231.0" mnemonicParsing="false" text="County" toggleGroup="$elecGroup" />
+                        <Group />
                      </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
+      <Line endX="100.0" startX="-100.0" />
    </children>
 </Pane>
