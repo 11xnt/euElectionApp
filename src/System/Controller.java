@@ -10,12 +10,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import java.io.*;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class Controller {
+public class Controller implements Initializable{
+
+
 
     //Initialized table view
     @FXML
@@ -163,8 +165,6 @@ public class Controller {
     @FXML
     public RadioButton searchByCounty;
     @FXML
-    public TableColumn snameT;
-    @FXML
     public ToggleGroup polGroup;
     @FXML
     public ToggleGroup elecGroup;
@@ -280,7 +280,8 @@ public class Controller {
     }
 
     //Sets table fields to be editable.
-    public void initialize(URL url) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         politicianTable.setEditable(true);
         politicianNameT.setCellFactory(TextFieldTableCell.forTableColumn());
         politicianPartyT.setCellFactory(TextFieldTableCell.forTableColumn());

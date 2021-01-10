@@ -2,28 +2,44 @@
   <System.MyList>
     <head>
       <contents class="System.Election">
-        <electionType>drgdrg</electionType>
-        <countyLocation>dgrdrg</countyLocation>
-        <yearOfElection>54545</yearOfElection>
-        <numberOfSeats>45</numberOfSeats>
+        <electionType>wegagaerg</electionType>
+        <countyLocation>rsagg</countyLocation>
+        <yearOfElection>343</yearOfElection>
+        <numberOfSeats>33</numberOfSeats>
         <candidateList>
           <head>
-            <contents class="System.Candidate">
-              <numOfVotes>54</numOfVotes>
-              <electionName>Election Type: drgdrg
-County Location: dgrdrg
-Year Of Election: 54545
-Number Of Seats: 45
+            <next>
+              <contents class="System.Candidate">
+                <numOfVotes>3</numOfVotes>
+                <electionName>Election Type: wegagaerg
+County Location: rsagg
+Year Of Election: 343
+Number Of Seats: 33
 </electionName>
-              <candidateName>Full Name: rgerg
-Date Of Birth: 544545
-Political Party: ergerg
-Home County: rdsgd
-URL Image: drgrg
+                <candidateName>Full Name: hjjjfr
+Date Of Birth: 433555
+Political Party: fdzjgfd
+Home County: tsjh
+URL Image: Photos/trump.jpg
+</candidateName>
+              </contents>
+            </next>
+            <contents class="System.Candidate">
+              <numOfVotes>5</numOfVotes>
+              <electionName>Election Type: wegagaerg
+County Location: rsagg
+Year Of Election: 343
+Number Of Seats: 33
+</electionName>
+              <candidateName>Full Name: dsgedrsg
+Date Of Birth: 3434
+Political Party: sfs
+Home County: wsrga
+URL Image: sargs
 </candidateName>
             </contents>
           </head>
-          <numElements>1</numElements>
+          <numElements>2</numElements>
         </candidateList>
       </contents>
     </head>
