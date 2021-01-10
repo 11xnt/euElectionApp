@@ -36,7 +36,7 @@ public class Controller {
     @FXML
     public Tab candidateTab;
     @FXML
-    public Tab searchTab;
+    public Tab searchTabPol;
     //Text fields Politician
     @FXML
     public TextField politicianParty;
@@ -162,6 +162,12 @@ public class Controller {
     public RadioButton searchByYear;
     @FXML
     public RadioButton searchByCounty;
+    @FXML
+    public TableColumn snameT;
+    @FXML
+    public ToggleGroup polGroup;
+    @FXML
+    public ToggleGroup elecGroup;
 
     MyList<Politician> myPoliticianList = new MyList<Politician>();
     MyList<Election> myElectionList = new MyList<Election>();
@@ -446,7 +452,6 @@ public class Controller {
             politicianTable.getItems().add(politicianNode.getContents());
             politicianNode = politicianNode.next;
         }
-        politicianTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     public void searchForElection(ActionEvent actionEvent) {
@@ -494,7 +499,7 @@ public class Controller {
         politicianTab.setDisable(false);
         electionTab.setDisable(false);
         candidateTab.setDisable(false);
-        searchTab.setDisable(false);
+        searchTabPol.setDisable(false);
         //Reloads tables and choice-boxes
         loadPoliticianChoiceBox();
         loadPoliticianTable();

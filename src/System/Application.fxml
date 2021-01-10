@@ -31,7 +31,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
                   <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
-              <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#quit" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -94,7 +94,6 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="searchField" layoutX="27.0" layoutY="420.0" prefHeight="26.0" prefWidth="315.0" promptText="Search" />
                         <ImageView fx:id="imgView" fitHeight="379.0" fitWidth="483.0" layoutX="723.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
                         <Button layoutX="597.0" layoutY="399.0" mnemonicParsing="false" onAction="#showImg" text="Show image" />
                      </children></AnchorPane>
@@ -123,10 +122,10 @@
                         <Button layoutX="247.0" layoutY="254.0" mnemonicParsing="false" onAction="#addElection" prefHeight="60.0" prefWidth="95.0" text="Add Election" />
                         <TableView id="dark" fx:id="electionTable" layoutX="-14.0" layoutY="460.0" prefHeight="331.0" prefWidth="1295.0">
                           <columns>
-                            <TableColumn fx:id="electionTypeT" onEditCommit="#editElectionName" prefWidth="226.66671180725098" text="Type" />
-                            <TableColumn fx:id="countyT" onEditCommit="#editElectionCounty" prefWidth="206.6667022705078" text="County" />
-                              <TableColumn fx:id="electionYearT" onEditCommit="#editElectionYear" prefWidth="143.33334350585938" text="Election Year" />
-                              <TableColumn fx:id="numOfSeatsT" onEditCommit="#editElectionNoS" prefWidth="120.666748046875" text="Number of Seats" />
+                            <TableColumn fx:id="electionTypeT" onEditCommit="#editElectionName" prefWidth="311.0" text="Type" />
+                            <TableColumn fx:id="countyT" onEditCommit="#editElectionCounty" prefWidth="259.0" text="County" />
+                              <TableColumn fx:id="electionYearT" onEditCommit="#editElectionYear" prefWidth="349.0" text="Election Year" />
+                              <TableColumn fx:id="numOfSeatsT" onEditCommit="#editElectionNoS" prefWidth="301.0" text="Number of Seats" />
                           </columns>
                         </TableView>
                         <Line endX="-100.0" endY="327.0" layoutX="741.0" layoutY="3.0" startX="-100.0" />
@@ -149,9 +148,9 @@
                            </tooltip></TextField>
                         <TableView id="dark" fx:id="candidateTable" layoutY="394.0" prefHeight="392.0" prefWidth="1282.0">
                           <columns>
-                              <TableColumn fx:id="candidateT" prefWidth="298.66672706604004" text="Candidate" />
-                            <TableColumn fx:id="electionT" prefWidth="353.9999084472656" text="Election" />
-                            <TableColumn fx:id="numberOfVotesT" prefWidth="298.66672706604004" text="Number of Votes" />
+                              <TableColumn fx:id="candidateT" prefWidth="344.0" text="Candidate" />
+                            <TableColumn fx:id="electionT" prefWidth="408.0" text="Election" />
+                            <TableColumn fx:id="numberOfVotesT" prefWidth="510.0" text="Number of Votes" />
                           </columns>
                         </TableView>
                         <Line endX="-2.0" endY="127.0" layoutX="643.0" layoutY="149.0" startX="-2.0" startY="-163.0" />
@@ -196,7 +195,7 @@
                         </TableView>
                         <TableView id="dark" fx:id="searchPolT" layoutX="52.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
                            <columns>
-                              <TableColumn fx:id="snameT" prefWidth="119.0" text="Name" />
+                              <TableColumn fx:id="sNameT" prefWidth="119.0" text="Name" />
                               <TableColumn fx:id="sPartyT" prefWidth="145.0" text="Party" />
                               <TableColumn fx:id="sDOBT" prefWidth="60.0" text="DOB" />
                               <TableColumn fx:id="sCountyT" prefWidth="115.0" text="County" />

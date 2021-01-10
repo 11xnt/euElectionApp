@@ -2,12 +2,28 @@
   <System.MyList>
     <head>
       <contents class="System.Election">
-        <electionType>asd</electionType>
-        <countyLocation>asd</countyLocation>
-        <yearOfElection>22</yearOfElection>
-        <numberOfSeats>22</numberOfSeats>
+        <electionType>drgdrg</electionType>
+        <countyLocation>dgrdrg</countyLocation>
+        <yearOfElection>54545</yearOfElection>
+        <numberOfSeats>45</numberOfSeats>
         <candidateList>
-          <numElements>0</numElements>
+          <head>
+            <contents class="System.Candidate">
+              <numOfVotes>54</numOfVotes>
+              <electionName>Election Type: drgdrg
+County Location: dgrdrg
+Year Of Election: 54545
+Number Of Seats: 45
+</electionName>
+              <candidateName>Full Name: rgerg
+Date Of Birth: 544545
+Political Party: ergerg
+Home County: rdsgd
+URL Image: drgrg
+</candidateName>
+            </contents>
+          </head>
+          <numElements>1</numElements>
         </candidateList>
       </contents>
     </head>
