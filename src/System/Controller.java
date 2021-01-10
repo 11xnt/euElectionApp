@@ -10,6 +10,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import javax.swing.*;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -437,39 +439,85 @@ public class Controller implements Initializable{
         imgView.setImage(image);
     }
 
-    //Loads the limited Politician Table in Search tab.
-    public void loadSearchedPoliticianTable() {
-        searchPolT.getItems().clear();
-        sNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
-        sPartyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("politicalParty"));
-        sCountyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("homeCounty"));
-
-        LinkedNode<Politician> politicianNode = myPoliticianList.head;
-        while (politicianNode != null) {
-            searchPolT.getItems().add(politicianNode.getContents());
-            politicianNode = politicianNode.next;
-        }
-    }
-
-    //Loads the limited Election Table in Search tab.
-    public void loadSearchedElectionTable() {
+    //Sends the information of what is chosen to be searched for in an Election List to other methods which will handle it
+    public void searchForElection(ActionEvent actionEvent) {
         searchElecT.getItems().clear();
         sTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
         sLocationT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
         sYearT.setCellValueFactory(new PropertyValueFactory<Election, String>("yearOfElection"));
-        LinkedNode<Election> electionNode = myElectionList.head;
-        while (electionNode != null) {
-            searchElecT.getItems().add(electionNode.getContents());
-            electionNode = electionNode.next;
+        sNOST.setCellValueFactory(new PropertyValueFactory<Election, String>("numberOfSeats"));
+        String matchedElection = searchElecTab.getText();
+        if(searchByType.isSelected() == true) {
+            LinkedNode<Election> electionNode = myElectionList.head;
+            while(electionNode != null) {
+                if(electionNode.getContents().getElectionType().contains(matchedElection)) {
+                    searchElecT.getItems().add(electionNode.getContents());
+                }
+                electionNode = electionNode.next;
+            }
+        }
+        else if(searchByYear.isSelected() == true) {
+            LinkedNode<Election> electionNode = myElectionList.head;
+            while(electionNode != null) {
+                if(electionNode.getContents().getYearOfElection().contains(matchedElection)) {
+                    searchElecT.getItems().add(electionNode.getContents());
+                }
+                electionNode = electionNode.next;
+            }
+        }
+        else if(searchByCounty.isSelected() == true) {
+            LinkedNode<Election> electionNode = myElectionList.head;
+            while(electionNode != null) {
+                if(electionNode.getContents().getCountyLocation().contains(matchedElection)) {
+                    searchElecT.getItems().add(electionNode.getContents());
+                }
+                electionNode = electionNode.next;
+            }
+        }
+        else {
+            System.out.println("No Data is available");
         }
     }
 
-    public void searchForElection(ActionEvent actionEvent) {
-    }
-
+    //Sends the information of what is chosen to be searched for in an Politician List to other methods which will handle it
     public void searchForPolitician(ActionEvent actionEvent) {
+        searchPolT.getItems().clear();
+        sNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
+        sPartyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("politicalParty"));
+        sDOBT.setCellValueFactory(new PropertyValueFactory<Politician, String>("dateOfBirth"));
+        sCountyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("homeCounty"));
+        String matchedPol = searchPolTab.getText();
+        if(searchByName.isSelected() == true) {
+            LinkedNode<Politician> politicianNode = myPoliticianList.head;
+            while(politicianNode != null) {
+                if(politicianNode.getContents().getFullName().contains(matchedPol)) {
+                    searchPolT.getItems().add(politicianNode.getContents());
+                }
+                    politicianNode = politicianNode.next;
+            }
+        }
+        else if(searchByParty.isSelected() == true) {
+            LinkedNode<Politician> politicianNode = myPoliticianList.head;
+            while(politicianNode != null) {
+                if(politicianNode.getContents().getPoliticalParty().contains(matchedPol)) {
+                    searchPolT.getItems().add(politicianNode.getContents());
+                }
+                politicianNode = politicianNode.next;
+            }
+        }
+        else if(searchByHCounty.isSelected() == true) {
+            LinkedNode<Politician> politicianNode = myPoliticianList.head;
+            while(politicianNode != null) {
+                if(politicianNode.getContents().getHomeCounty().contains(matchedPol)) {
+                    searchPolT.getItems().add(politicianNode.getContents());
+                }
+                politicianNode = politicianNode.next;
+            }
+        }
+        else {
+            System.out.println("No Data is available");
+        }
     }
-
 
     //Can call this method to get auto-save function
     public void saveToFile()

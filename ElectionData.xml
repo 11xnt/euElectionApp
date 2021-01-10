@@ -2,28 +2,12 @@
   <System.MyList>
     <head>
       <contents class="System.Election">
-        <electionType>wegagaerg</electionType>
-        <countyLocation>rsagg</countyLocation>
-        <yearOfElection>343</yearOfElection>
-        <numberOfSeats>33</numberOfSeats>
+        <electionType>President</electionType>
+        <countyLocation>Waterford</countyLocation>
+        <yearOfElection>2001</yearOfElection>
+        <numberOfSeats>245</numberOfSeats>
         <candidateList>
-          <head>
-            <contents class="System.Candidate">
-              <numOfVotes>3</numOfVotes>
-              <electionName>Election Type: wegagaerg
-County Location: rsagg
-Year Of Election: 343
-Number Of Seats: 33
-</electionName>
-              <candidateName>Full Name: hjjjfr
-Date Of Birth: 433555
-Political Party: fdzjgfd
-Home County: tsjh
-URL Image: Photos/trump.jpg
-</candidateName>
-            </contents>
-          </head>
-          <numElements>1</numElements>
+          <numElements>0</numElements>
         </candidateList>
       </contents>
     </head>

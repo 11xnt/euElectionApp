@@ -166,7 +166,7 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab id="but" fx:id="searchTabPol" onSelectionChanged="#loadSearchedPoliticianTable" text="Search">
+            <Tab id="but" fx:id="searchTabPol" text="Search">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -187,16 +187,18 @@
                         <TextField fx:id="searchElecTab" layoutX="871.0" layoutY="102.0" />
                         <TableView id="dark" fx:id="searchElecT" layoutX="659.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
                            <columns>
-                              <TableColumn fx:id="sTypeT" prefWidth="173.3333740234375" text="Type" />
-                              <TableColumn fx:id="sLocationT" prefWidth="151.3333740234375" text="County" />
-                              <TableColumn fx:id="sYearT" prefWidth="206.666748046875" text="Election Year" />
+                              <TableColumn fx:id="sTypeT" prefWidth="144.0" text="Type" />
+                              <TableColumn fx:id="sLocationT" prefWidth="173.0" text="County" />
+                              <TableColumn fx:id="sYearT" prefWidth="99.0" text="Election Year" />
+                              <TableColumn fx:id="sNOST" prefWidth="118.0" text="Number of Seats" />
                            </columns>
                         </TableView>
                         <TableView id="dark" fx:id="searchPolT" layoutX="52.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
                            <columns>
-                              <TableColumn fx:id="sNameT" prefWidth="168.6666259765625" text="Name" />
-                              <TableColumn fx:id="sPartyT" prefWidth="173.99993896484375" text="Party" />
-                              <TableColumn fx:id="sCountyT" prefWidth="190.0" text="County" />
+                              <TableColumn fx:id="sNameT" prefWidth="148.0" text="Name" />
+                              <TableColumn fx:id="sPartyT" prefWidth="122.0" text="Party" />
+                              <TableColumn fx:id="sDOBT" prefWidth="93.0" text="DOB" />
+                              <TableColumn fx:id="sCountyT" prefWidth="167.0" text="County" />
                            </columns>
                         </TableView>
                         <RadioButton fx:id="searchByParty" layoutX="285.0" layoutY="196.0" mnemonicParsing="false" text="Party">
@@ -204,7 +206,7 @@
                               <ToggleGroup fx:id="polGroup" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="searchByName" layoutX="283.0" layoutY="161.0" mnemonicParsing="false" text="Name" toggleGroup="$polGroup" />
+                        <RadioButton fx:id="searchByName" layoutX="284.0" layoutY="161.0" mnemonicParsing="false" text="Name" toggleGroup="$polGroup" />
                         <RadioButton fx:id="searchByHCounty" layoutX="285.0" layoutY="231.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="66.0" text="County" toggleGroup="$polGroup" />
                         <RadioButton fx:id="searchByType" layoutX="912.0" layoutY="161.0" mnemonicParsing="false" text="Type">
                            <toggleGroup>
@@ -214,7 +216,6 @@
                         <RadioButton fx:id="searchByYear" layoutX="912.0" layoutY="196.0" mnemonicParsing="false" text="Year" toggleGroup="$elecGroup" />
                         <RadioButton fx:id="searchByCounty" layoutX="912.0" layoutY="231.0" mnemonicParsing="false" text="County" toggleGroup="$elecGroup" />
                         <Group />
-                        <Button layoutX="904.0" layoutY="360.0" mnemonicParsing="false" onAction="#loadSearchedElectionTable" text="Load Table" />
                      </children></AnchorPane>
               </content>
             </Tab>

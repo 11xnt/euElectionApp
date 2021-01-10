@@ -7,6 +7,9 @@ public class Utilities {
         return (text.matches("[0-9]+"));
     }
 
+    static boolean onlyContainsFullName(String text) {
+        return (text.matches("[a-zA-Z]+\\s+[a-zA-Z]+"));
+    }
     static boolean onlyContainsLetters(String text) {
         return (text.matches("[a-zA-Z]+"));
     }
