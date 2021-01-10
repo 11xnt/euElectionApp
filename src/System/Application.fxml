@@ -182,24 +182,21 @@
                            </font>
                         </Text>
                         <Button layoutX="232.0" layoutY="286.0" mnemonicParsing="false" onAction="#searchForPolitician" prefHeight="63.0" prefWidth="170.0" text="Search" />
-                        <Button layoutX="860.0" layoutY="286.0" mnemonicParsing="false" onAction="#searchForElection" prefHeight="63.0" prefWidth="170.0" text="Search" />
+                        <Button layoutX="861.0" layoutY="286.0" mnemonicParsing="false" onAction="#searchForElection" prefHeight="63.0" prefWidth="170.0" text="Search" />
                         <TextField fx:id="searchPolTab" layoutX="243.0" layoutY="102.0" />
                         <TextField fx:id="searchElecTab" layoutX="871.0" layoutY="102.0" />
                         <TableView id="dark" fx:id="searchElecT" layoutX="659.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
                            <columns>
-                              <TableColumn fx:id="sTypeT" prefWidth="151.0" text="Type" />
-                              <TableColumn fx:id="sLocationT" prefWidth="151.0" text="County" />
-                              <TableColumn fx:id="sYearT" prefWidth="111.0" text="Election Year" />
-                              <TableColumn fx:id="sNOST" prefWidth="119.0" text="Number of Seats" />
+                              <TableColumn fx:id="sTypeT" prefWidth="173.3333740234375" text="Type" />
+                              <TableColumn fx:id="sLocationT" prefWidth="151.3333740234375" text="County" />
+                              <TableColumn fx:id="sYearT" prefWidth="206.666748046875" text="Election Year" />
                            </columns>
                         </TableView>
                         <TableView id="dark" fx:id="searchPolT" layoutX="52.0" layoutY="391.0" prefHeight="392.0" prefWidth="573.0">
                            <columns>
-                              <TableColumn fx:id="sNameT" prefWidth="119.0" text="Name" />
-                              <TableColumn fx:id="sPartyT" prefWidth="145.0" text="Party" />
-                              <TableColumn fx:id="sDOBT" prefWidth="60.0" text="DOB" />
-                              <TableColumn fx:id="sCountyT" prefWidth="115.0" text="County" />
-                              <TableColumn fx:id="sURLT" prefWidth="105.0" text="URL" />
+                              <TableColumn fx:id="sNameT" prefWidth="168.6666259765625" text="Name" />
+                              <TableColumn fx:id="sPartyT" prefWidth="173.99993896484375" text="Party" />
+                              <TableColumn fx:id="sCountyT" prefWidth="190.0" text="County" />
                            </columns>
                         </TableView>
                         <RadioButton fx:id="searchByParty" layoutX="285.0" layoutY="196.0" mnemonicParsing="false" text="Party">
@@ -217,6 +214,8 @@
                         <RadioButton fx:id="searchByYear" layoutX="912.0" layoutY="196.0" mnemonicParsing="false" text="Year" toggleGroup="$elecGroup" />
                         <RadioButton fx:id="searchByCounty" layoutX="912.0" layoutY="231.0" mnemonicParsing="false" text="County" toggleGroup="$elecGroup" />
                         <Group />
+                        <Button layoutX="277.0" layoutY="360.0" mnemonicParsing="false" onAction="#loadSearchedPoliticianTable" text="Load Table" />
+                        <Button layoutX="904.0" layoutY="360.0" mnemonicParsing="false" onAction="#loadSearchedElectionTable" text="Load Table" />
                      </children></AnchorPane>
               </content>
             </Tab>

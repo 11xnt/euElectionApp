@@ -8,38 +8,22 @@
         <numberOfSeats>33</numberOfSeats>
         <candidateList>
           <head>
-            <next>
-              <contents class="System.Candidate">
-                <numOfVotes>3</numOfVotes>
-                <electionName>Election Type: wegagaerg
-County Location: rsagg
-Year Of Election: 343
-Number Of Seats: 33
-</electionName>
-                <candidateName>Full Name: hjjjfr
-Date Of Birth: 433555
-Political Party: fdzjgfd
-Home County: tsjh
-URL Image: Photos/trump.jpg
-</candidateName>
-              </contents>
-            </next>
             <contents class="System.Candidate">
-              <numOfVotes>5</numOfVotes>
+              <numOfVotes>3</numOfVotes>
               <electionName>Election Type: wegagaerg
 County Location: rsagg
 Year Of Election: 343
 Number Of Seats: 33
 </electionName>
-              <candidateName>Full Name: dsgedrsg
-Date Of Birth: 3434
-Political Party: sfs
-Home County: wsrga
-URL Image: sargs
+              <candidateName>Full Name: hjjjfr
+Date Of Birth: 433555
+Political Party: fdzjgfd
+Home County: tsjh
+URL Image: Photos/trump.jpg
 </candidateName>
             </contents>
           </head>
-          <numElements>2</numElements>
+          <numElements>1</numElements>
         </candidateList>
       </contents>
     </head>

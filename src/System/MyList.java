@@ -75,7 +75,38 @@ public class MyList<L> {
         }
     }
 
+    public boolean search() {
+        LinkedNode current = head;
+        while (current != null){
+            if (current == head.getContents()){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public int searchElement(L element)
+    {
+        if (head == null) {
+            return -1;
+        }
+        int index = 0;
+        LinkedNode<L> temp = head;
+        while (temp != null) {
+            if (temp == element) {
+                return index;
+            }
+            index++;
+            temp = temp.next;
+        }
+        return -1;
+    }
+
+
+
 }
+
 
 
 

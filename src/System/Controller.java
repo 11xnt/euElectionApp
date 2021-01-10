@@ -27,9 +27,9 @@ public class Controller implements Initializable{
     @FXML
     public TableView<Candidate> candidateTable;
     @FXML
-    public TableView<Candidate> searchPolT;
+    public TableView<Politician> searchPolT;
     @FXML
-    public TableView<Candidate> searchElecT;
+    public TableView<Election> searchElecT;
     //Al tabs used
     @FXML
     public Tab politicianTab;
@@ -444,13 +444,11 @@ public class Controller implements Initializable{
         searchPolT.getItems().clear();
         sNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
         sPartyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("politicalParty"));
-        sDOBT.setCellValueFactory(new PropertyValueFactory<Politician, String>("dateOfBirth"));
         sCountyT.setCellValueFactory(new PropertyValueFactory<Politician, String>("homeCounty"));
-        sURLT.setCellValueFactory(new PropertyValueFactory<Politician, String>("image"));
 
         LinkedNode<Politician> politicianNode = myPoliticianList.head;
         while (politicianNode != null) {
-            politicianTable.getItems().add(politicianNode.getContents());
+            searchPolT.getItems().add(politicianNode.getContents());
             politicianNode = politicianNode.next;
         }
     }
@@ -463,7 +461,11 @@ public class Controller implements Initializable{
         sTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
         sLocationT.setCellValueFactory(new PropertyValueFactory<Election, String>("countyLocation"));
         sYearT.setCellValueFactory(new PropertyValueFactory<Election, String>("yearOfElection"));
-        sNOST.setCellValueFactory(new PropertyValueFactory<Election, String>("numberOfSeats"));
+        LinkedNode<Election> electionNode = myElectionList.head;
+        while (electionNode != null) {
+            searchElecT.getItems().add(electionNode.getContents());
+            electionNode = electionNode.next;
+        }
     }
 
     //Can call this method to get auto-save function
