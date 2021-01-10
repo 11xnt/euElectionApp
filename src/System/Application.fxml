@@ -166,7 +166,7 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab id="but" fx:id="searchTabPol" text="Search">
+            <Tab id="but" fx:id="searchTabPol" onSelectionChanged="#loadSearchedPoliticianTable" text="Search">
               <content>
                 <AnchorPane id="but" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -214,7 +214,6 @@
                         <RadioButton fx:id="searchByYear" layoutX="912.0" layoutY="196.0" mnemonicParsing="false" text="Year" toggleGroup="$elecGroup" />
                         <RadioButton fx:id="searchByCounty" layoutX="912.0" layoutY="231.0" mnemonicParsing="false" text="County" toggleGroup="$elecGroup" />
                         <Group />
-                        <Button layoutX="277.0" layoutY="360.0" mnemonicParsing="false" onAction="#loadSearchedPoliticianTable" text="Load Table" />
                         <Button layoutX="904.0" layoutY="360.0" mnemonicParsing="false" onAction="#loadSearchedElectionTable" text="Load Table" />
                      </children></AnchorPane>
               </content>
