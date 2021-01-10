@@ -437,9 +437,7 @@ public class Controller implements Initializable{
         imgView.setImage(image);
     }
 
-    public void searchForPolitician(ActionEvent actionEvent) {
-    }
-
+    //Loads the limited Politician Table in Search tab.
     public void loadSearchedPoliticianTable() {
         searchPolT.getItems().clear();
         sNameT.setCellValueFactory(new PropertyValueFactory<Politician, String>("fullName"));
@@ -453,9 +451,7 @@ public class Controller implements Initializable{
         }
     }
 
-    public void searchForElection(ActionEvent actionEvent) {
-    }
-
+    //Loads the limited Election Table in Search tab.
     public void loadSearchedElectionTable() {
         searchElecT.getItems().clear();
         sTypeT.setCellValueFactory(new PropertyValueFactory<Election, String>("electionType"));
@@ -467,6 +463,13 @@ public class Controller implements Initializable{
             electionNode = electionNode.next;
         }
     }
+
+    public void searchForElection(ActionEvent actionEvent) {
+    }
+
+    public void searchForPolitician(ActionEvent actionEvent) {
+    }
+
 
     //Can call this method to get auto-save function
     public void saveToFile()
