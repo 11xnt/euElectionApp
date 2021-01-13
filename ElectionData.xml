@@ -7,7 +7,87 @@
         <yearOfElection>2001</yearOfElection>
         <numberOfSeats>245</numberOfSeats>
         <candidateList>
-          <numElements>0</numElements>
+          <head>
+            <next>
+              <next>
+                <next>
+                  <next>
+                    <contents class="System.Candidate">
+                      <numOfVotes>22</numOfVotes>
+                      <electionName>Election Type: President
+County Location: Waterford
+Year Of Election: 2001
+Number Of Seats: 245
+</electionName>
+                      <candidateName>Full Name: Allen Terescenco
+Date Of Birth: 22062001
+Political Party: Inde
+Home County: Waterford
+URL Image: www.youtube.com
+</candidateName>
+                    </contents>
+                  </next>
+                  <contents class="System.Candidate">
+                    <numOfVotes>22</numOfVotes>
+                    <electionName>Election Type: President
+County Location: Waterford
+Year Of Election: 2001
+Number Of Seats: 245
+</electionName>
+                    <candidateName>Full Name: Allen Terescenco
+Date Of Birth: 22062001
+Political Party: Inde
+Home County: Waterford
+URL Image: www.youtube.com
+</candidateName>
+                  </contents>
+                </next>
+                <contents class="System.Candidate">
+                  <numOfVotes>22</numOfVotes>
+                  <electionName>Election Type: President
+County Location: Waterford
+Year Of Election: 2001
+Number Of Seats: 245
+</electionName>
+                  <candidateName>Full Name: Allen Terescenco
+Date Of Birth: 22062001
+Political Party: Inde
+Home County: Waterford
+URL Image: www.youtube.com
+</candidateName>
+                </contents>
+              </next>
+              <contents class="System.Candidate">
+                <numOfVotes>23</numOfVotes>
+                <electionName>Election Type: President
+County Location: Waterford
+Year Of Election: 2001
+Number Of Seats: 245
+</electionName>
+                <candidateName>Full Name: Allen Terescenco
+Date Of Birth: 22062001
+Political Party: Inde
+Home County: Waterford
+URL Image: www.youtube.com
+</candidateName>
+              </contents>
+            </next>
+            <contents class="System.Candidate">
+              <numOfVotes>23</numOfVotes>
+              <electionName>Election Type: President
+County Location: Waterford
+Year Of Election: 2001
+Number Of Seats: 245
+</electionName>
+              <candidateName>Full Name: Allen Terescenco
+Date Of Birth: 22062001
+Political Party: Inde
+Home County: Waterford
+URL Image: www.youtube.com
+</candidateName>
+            </contents>
+          </head>
+          <numElements>5</numElements>
         </candidateList>
       </contents>
     </head>
